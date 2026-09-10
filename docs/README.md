@@ -161,7 +161,7 @@ Usuario intenta comprar
     - Cantidad a comprar (con un limite para elegir)
     - subtotal de cada producto de su eleccion y con el monto total por la cantidad de productos elegidos
     - Seccion donde dira el monto a pagar por todo al momento de ir al retiral es pedido
-    -
+    
 
 --------------------------------------------------------------------
 
@@ -170,24 +170,36 @@ Usuario intenta comprar
 <pre>
 Proyecto MST/
 ├── backend/
-│   ├──cooperadora.php
+│   ├── carga_producto.php
+│   ├── conexion.php
+│   ├── index.php
+│   ├── listado.php
 │   ├── login.php
-│   ├── registro.php
-│   ├── verificar_sesion.php
+│   ├── logout.php 
+│   ├── procesar.php
+│   ├── producto.php
+│   ├── setup.php
 ├── frontend/
     └── vscode/
         ├── html/
-        │   ├── index.html
-        │   ├── login.html
-        │   ├── TiendaOnline.html
+        │   ├── buso.html
+        │   ├── chomba.html
+        │   ├── cuadernillo.html
+        │   ├── equipo.html
+        │   ├── formulario.html
+        │   ├── inicio.html
+        │   ├── remera.html
+        │   ├── reservas.html
+        │   ├── tienda.html
         │   └── Equipo.html
+        ├── img/
+        │   ├── logos
+        │   └── productos
         ├── css/
         │   └── style.css
         └── js/
-           ├── index.js
-           ├── login.js
-           ├── tienda.js
-           └── navbar.js
+           ├── script.js
+           └── inicio.js
 </pre>
 
 ## Estructura de la base de datos
