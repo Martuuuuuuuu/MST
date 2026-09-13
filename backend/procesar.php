@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ':dni' => $dni,
         ':telefono' => $telefono
     ]);
-    // Redirecciona al listado cuando el registro fue exitoso.
-    header("Location: listado.php?msg=ok");
+    // Redirecciona al inicio cuando el registro fue exitoso.
+    header("Location: ../frontendnew/html/inicio.html");
     // Finaliza el script.
     exit;
 }

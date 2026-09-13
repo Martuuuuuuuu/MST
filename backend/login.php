@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['usuario_id'] = $usuario['id'];
         $_SESSION['username'] = $usuario['username'];
         
-        header("Location: listado.php");
+        header("Location: ../frontendnew/html/inicio.html");
         exit;
     } else {
         echo "Email o contraseña incorrectos. <a href='index.php'>Volver</a>";

@@ -161,7 +161,6 @@ Usuario intenta comprar
     - Cantidad a comprar (con un limite para elegir)
     - subtotal de cada producto de su eleccion y con el monto total por la cantidad de productos elegidos
     - Seccion donde dira el monto a pagar por todo al momento de ir al retiral es pedido
-    
 
 --------------------------------------------------------------------
 
