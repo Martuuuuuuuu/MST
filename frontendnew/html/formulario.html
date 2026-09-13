@@ -46,7 +46,7 @@ button:hover { background: #065A82; }
     <button type="submit">Registrar</button>
 </form>
 <script>
-document.querySelector("#registration-form").addEventListener("submit", (event) => {
+document.querySelector("#registration-form").addEventListener("submit", (event) => { 
     const name = document.querySelector("#nombre").value.trim();
     const surname = document.querySelector("#apellido").value.trim();
     localStorage.setItem("mst-usuario-nombre", `${name} ${surname}`.trim());
