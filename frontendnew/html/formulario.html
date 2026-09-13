@@ -26,7 +26,7 @@ button:hover { background: #065A82; }
 <body>
 <h1>Registro de Usuarios</h1>
 <!-- Formulario que envía los datos a procesar.php -->
-<form action="../../backend/procesar.php" method="POST">
+<form id="registration-form" action="../../backend/procesar.php" method="POST">
     <!-- Campo para ingresar el nombre -->
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" required>
@@ -45,5 +45,12 @@ button:hover { background: #065A82; }
     <!-- Botón que envía el formulario -->
     <button type="submit">Registrar</button>
 </form>
+<script>
+document.querySelector("#registration-form").addEventListener("submit", (event) => {
+    const name = document.querySelector("#nombre").value.trim();
+    const surname = document.querySelector("#apellido").value.trim();
+    localStorage.setItem("mst-usuario-nombre", `${name} ${surname}`.trim());
+});
+</script>
 </body>
 </html>

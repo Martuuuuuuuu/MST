@@ -5,7 +5,6 @@
 } 
 
 html{
-	
 	scroll-behavior: smooth;
 }
 
@@ -285,21 +284,30 @@ body {
 
 /*SECCION EQUIPO*/
 .team-section {
-	background: #ffffff;
+	background:
+		radial-gradient(circle at 4% 8%, rgba(121, 202, 230, .22) 0 7px, transparent 8px),
+		radial-gradient(circle at 21% 88%, rgba(105, 196, 226, .2) 0 8px, transparent 9px),
+		radial-gradient(circle at 92% 69%, rgba(88, 189, 220, .18) 0 6px, transparent 7px),
+		radial-gradient(circle at 22% 14%, rgba(223, 246, 253, .65), transparent 26%),
+		linear-gradient(180deg, #ffffff 0%, #fbfeff 58%, #effafd 100%);
 	color: #183b56;
 	overflow: hidden;
+	min-height: 100svh;
 	padding: 68px 28px 76px;
 	position: relative;
 }
 
 .team-section::before {
-	background: #c7dce5;
+	background: linear-gradient(90deg, #c7dce5 0%, #c7dce5 35%, #7ec6dc 50%, #c7dce5 65%, #c7dce5 100%);
+	background-size: 220% 100%;
 	content: "";
 	height: 3px;
 	left: 0;
 	position: absolute;
 	right: 0;
 	top: 0;
+	animation: team-line-sweep 9s ease-in-out infinite;
+	z-index: 2;
 }
 
 .team-heading, .team-grid {
@@ -313,7 +321,6 @@ body {
 }
 
 .team-heading {
-	margin-bottom: 36px;
 	max-width: 760px;
 	text-align: center;
 }
@@ -321,7 +328,6 @@ body {
 .team-kicker {
 	align-items: center;
 	color: #6e9bb1;
-	display: flex;
 	font-size: 11px;
 	font-weight: bold;
 	letter-spacing: 2px;
@@ -332,7 +338,6 @@ body {
 
 .team-kicker::before {
 	background: #6e9bb1;
-	content: "";
 	height: 1px;
 	margin-right: 10px;
 	width: 28px;
@@ -366,8 +371,9 @@ body {
 
 .team-grid {
 	display: grid;
-	gap: 16px;
+	gap: 15px;
 	grid-template-columns: repeat(4, minmax(0, 1fr));
+	margin-top: 35px;
 }
 
 .team-card {
@@ -761,6 +767,9 @@ body {
 	.team-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
+	.opinions-layout {
+		grid-template-columns: 1fr;
+	}
 	.footer-content {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
@@ -775,6 +784,9 @@ body {
 		padding-right: 14px;
 	}
 	.team-grid {
+		grid-template-columns: 1fr;
+	}
+	.opinions-list {
 		grid-template-columns: 1fr;
 	}
 	.section-heading {
@@ -804,6 +816,168 @@ body {
 
 /*SECCION OPINIONES */
 
+.opinions-section {
+	background:
+		radial-gradient(circle at 100% 0, rgba(173, 222, 234, .24), transparent 30%),
+		#f7fcfd;
+	color: #183b56;
+	padding: 72px 28px 78px;
+}
+
+.opinions-heading {
+	margin: 0 auto 30px;
+	max-width: 1040px;
+	text-align: left;
+}
+
+.opinions-kicker {
+	color: #6e9bb1;
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	margin-bottom: 14px;
+	text-transform: uppercase;
+}
+
+.opinions-heading h2 {
+	font-family: Georgia, serif;
+	font-size: clamp(32px, 5vw, 48px);
+	line-height: 1.05;
+}
+
+.opinions-heading > p:last-child {
+	color: #637583;
+	font-size: 16px;
+	line-height: 1.6;
+	margin: 14px 0 0;
+	max-width: 540px;
+}
+
+.opinions-layout {
+	display: grid;
+	gap: 24px;
+	grid-template-columns: 1fr;
+	margin: 0 auto;
+	max-width: 1040px;
+}
+
+.opinion-card {
+	background: #ffffff;
+	border: 1px solid #dce9ee;
+	border-radius: 18px;
+	box-shadow: 0 10px 24px rgba(66, 107, 129, .1);
+}
+
+.opinion-form {
+	border-top: 1px solid #cfe3e9;
+	padding: 4px 0 0;
+}
+
+.opinion-form label {
+	color: #183b56;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: .6px;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+.opinion-form textarea {
+	background: #f8fcfd;
+	border: 1px solid #cbdfe6;
+	border-radius: 8px;
+	color: #183b56;
+	font: inherit;
+	margin: 0;
+	min-height: 66px;
+	overflow: hidden;
+	padding: 11px 12px;
+	resize: none;
+	transition: border-color .2s ease, box-shadow .2s ease;
+	width: 100%;
+}
+
+.opinion-compose {
+	align-items: flex-start;
+	display: grid;
+	gap: 12px;
+	grid-template-columns: minmax(0, 1fr) 112px;
+}
+
+.opinion-form textarea:focus {
+	border-color: #6eafc3;
+	box-shadow: 0 0 0 3px rgba(110, 175, 195, .18);
+	outline: none;
+}
+
+.opinion-form button {
+	background: #16587b;
+	border: 0;
+	border-radius: 999px;
+	color: #ffffff;
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: .8px;
+	min-height: 42px;
+	padding: 11px 14px;
+	text-transform: uppercase;
+	transition: background .2s ease, transform .2s ease;
+}
+
+.opinion-form button:hover, .opinion-form button:focus-visible {
+	background: #24789d;
+	transform: translateY(-2px);
+}
+
+.opinion-status {
+	color: #4d7f8d;
+	font-size: 12px;
+	min-height: 18px;
+	padding-top: 8px;
+}
+
+.opinions-list {
+	display: grid;
+	gap: 16px;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.opinions-empty {
+	background: #f7f9ff;
+	border-left: 4px solid #cad1e4;
+	border-radius: 0 14px 14px 0;
+	color: #637583;
+	font-size: 16px;
+	grid-column: 1 / -1;
+	margin: 0;
+	padding: 28px;
+}
+
+.opinion-card {
+	min-height: 100px;
+	padding: 15px 15px;
+}
+
+.opinion-message {
+	color: #36586b;
+	font-family: Georgia, serif;
+	font-size: 17px;
+	line-height: 1.5;
+	min-height: 66px;
+}
+
+.opinion-author {
+	border-top: 1px solid #e1edf1;
+	color: #6e9bb1;
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: .8px;
+	margin-top: 12px;
+	padding-top: 9px;
+	text-transform: uppercase;
+}
+
 
 
 
@@ -813,6 +987,139 @@ body {
 
 
 /*SECCION REGISTRARSE, INICIAR SESION*/
+
+
+
+
+
+
+/* animacion seccion de equipo */
+.team-section::after {
+	background:
+		linear-gradient(115deg, transparent 0 31%, rgba(255, 255, 255, .42) 32%, transparent 33% 67%, rgba(255, 255, 255, .28) 68%, transparent 69%),
+		linear-gradient(rgba(92, 181, 211, .08) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(92, 181, 211, .08) 1px, transparent 1px),
+		radial-gradient(circle at 12% 18%, rgba(111, 202, 227, .2) 0 10%, transparent 28%),
+		radial-gradient(circle at 88% 74%, rgba(143, 215, 232, .23) 0 8%, transparent 25%),
+		radial-gradient(circle at 52% 112%, rgba(199, 235, 244, .55) 0 12%, transparent 36%);
+	background-size: 180% 180%, 42px 42px, 42px 42px, auto, auto, auto;
+	content: "";
+	inset: -12% -8%;
+	pointer-events: none;
+	position: absolute;
+	transform: translate3d(0, 0, 0) scale(1);
+	animation: team-background-flow 18s ease-in-out infinite alternate;
+	will-change: opacity, transform;
+	z-index: 0;
+}
+
+@keyframes team-background-flow {
+	0% {
+		opacity: .72;
+		transform: translate3d(-1%, 1%, 0) scale(1);
+	}
+	100% {
+		opacity: 1;
+		transform: translate3d(1.5%, -1%, 0) scale(1.06);
+	}
+}
+
+@keyframes team-line-sweep {
+	0%, 18% {
+		background-position: 120% 0;
+	}
+	70%, 100% {
+		background-position: -20% 0;
+	}
+}
+
+.team-orbits {
+	inset: 0;
+	position: absolute;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.team-orbit {
+	background: repeating-radial-gradient(circle, transparent 0 24px, rgba(87, 184, 216, .2) 25px 31px, transparent 32px 44px);
+	border-radius: 50%;
+	opacity: .85;
+	position: absolute;
+	transform: scale(1);
+}
+
+.team-orbit-top {
+	height: 300px;
+	left: -88px;
+	top: -156px;
+	width: 300px;
+	animation: team-orbit-drift-a 18s ease-in-out infinite alternate;
+}
+
+.team-orbit-left {
+	height: 172px;
+	left: -80px;
+	top: 180px;
+	width: 172px;
+	background: repeating-radial-gradient(circle, transparent 0 17px, rgba(75, 174, 211, .23) 18px 24px, transparent 25px 35px);
+	animation: team-orbit-drift-b 21s ease-in-out infinite alternate-reverse;
+}
+
+.team-orbit-right {
+	height: 190px;
+	right: -72px;
+	top: 74px;
+	width: 190px;
+	background: repeating-radial-gradient(circle, transparent 0 19px, rgba(93, 192, 219, .22) 20px 26px, transparent 27px 39px);
+	animation: team-orbit-drift-a 16s ease-in-out 1s infinite alternate-reverse;
+}
+
+.team-orbit-bottom {
+	bottom: -205px;
+	height: 390px;
+	right: 4%;
+	width: 390px;
+	background: repeating-radial-gradient(circle, transparent 0 33px, rgba(86, 182, 216, .2) 34px 42px, transparent 43px 61px);
+	animation: team-orbit-drift-b 24s ease-in-out infinite alternate;
+}
+
+.team-orbit-small {
+	height: 92px;
+	right: 31%;
+	top: 46%;
+	width: 92px;
+	background: repeating-radial-gradient(circle, transparent 0 10px, rgba(97, 191, 220, .2) 11px 16px, transparent 17px 27px);
+	animation: team-orbit-drift-a 12s ease-in-out 2s infinite alternate;
+}
+
+@keyframes team-orbit-drift-a {
+	0% {
+		opacity: .62;
+		transform: translate3d(-8px, 5px, 0) rotate(-3deg) scale(.98);
+	}
+	100% {
+		opacity: .9;
+		transform: translate3d(9px, -7px, 0) rotate(4deg) scale(1.035);
+	}
+}
+
+@keyframes team-orbit-drift-b {
+	0% {
+		opacity: .58;
+		transform: translate3d(7px, -5px, 0) rotate(3deg) scale(1);
+	}
+	100% {
+		opacity: .88;
+		transform: translate3d(-10px, 8px, 0) rotate(-4deg) scale(1.03);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.team-section::after, .team-section::before, .team-orbit {
+		animation: none;
+		transform: none;
+	}
+}
 
 
 

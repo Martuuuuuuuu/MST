@@ -1,14 +1,3 @@
-//carrito de reserva
-
-
-
-
-
-
-
-
-
-
 // MENU  DE HAMBURGUESA
 document.addEventListener("DOMContentLoaded", () => {
 	const header = document.querySelector(".site-header");
@@ -37,5 +26,115 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (event.key === "Escape") {
 			closeMenu();
 		}
+	});
+});
+
+// Seccion de opiniones
+const opinionsStorageKey = "mst-opiniones";
+const opinionsResetKey = "mst-opiniones-reset-v2";
+
+const readOpinions = () => {
+	try {
+		const savedOpinions = JSON.parse(localStorage.getItem(opinionsStorageKey));
+		return Array.isArray(savedOpinions) ? savedOpinions : [];
+	} catch {
+		return [];
+	}
+};
+
+const saveOpinions = (opinions) => {
+	try {
+		localStorage.setItem(opinionsStorageKey, JSON.stringify(opinions));
+		return true;
+	} catch {
+		return false;
+	}
+};
+
+const getRegisteredName = () => {
+	try {
+		return localStorage.getItem("mst-usuario-nombre") || "Comunidad educativa";
+	} catch {
+		return "Comunidad educativa";
+	}
+};
+
+const renderOpinions = (opinions, opinionsList) => {
+	opinionsList.replaceChildren();
+
+	if (opinions.length === 0) {
+		const emptyMessage = document.createElement("p");
+		emptyMessage.className = "opinions-empty";
+		emptyMessage.textContent = "Todavía no hay comentarios.";
+		opinionsList.append(emptyMessage);
+		return;
+	}
+
+	opinions.forEach((opinion) => {
+		const card = document.createElement("article");
+		card.className = "opinion-card";
+
+		const quote = document.createElement("p");
+		quote.className = "opinion-message";
+		quote.textContent = `“${opinion.message}”`;
+
+		const author = document.createElement("p");
+		author.className = "opinion-author";
+		author.textContent = opinion.name;
+
+		card.append(quote, author);
+		opinionsList.append(card);
+	});
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+	const opinionForm = document.querySelector("#opinion-form");
+	const opinionsList = document.querySelector("#opinions-list");
+	const opinionStatus = document.querySelector("#opinion-status");
+	const opinionMessage = document.querySelector("#opinion-message");
+
+	if (!opinionForm || !opinionsList || !opinionStatus || !opinionMessage) {
+		return;
+	}
+
+	const resizeOpinionMessage = () => {
+		opinionMessage.style.height = "auto";
+		opinionMessage.style.height = `${opinionMessage.scrollHeight}px`;
+	};
+
+	opinionMessage.addEventListener("input", resizeOpinionMessage);
+	resizeOpinionMessage();
+
+	if (!localStorage.getItem(opinionsResetKey)) {
+		localStorage.removeItem(opinionsStorageKey);
+		localStorage.setItem(opinionsResetKey, "true");
+	}
+
+	let opinions = readOpinions();
+	renderOpinions(opinions, opinionsList);
+
+	opinionForm.addEventListener("submit", (event) => {
+		event.preventDefault();
+
+		const formData = new FormData(opinionForm);
+		const message = formData.get("message").trim();
+
+		if (!message) {
+			opinionStatus.textContent = "Escribí tu opinión antes de publicarla.";
+			return;
+		}
+
+		const newOpinion = { name: getRegisteredName(), message };
+		opinions = [newOpinion, ...opinions];
+
+		if (!saveOpinions(opinions)) {
+			opinionStatus.textContent = "No se pudo guardar la opinión en este navegador.";
+			return;
+		}
+
+		renderOpinions(opinions, opinionsList);
+		opinionForm.reset();
+		resizeOpinionMessage();
+		opinionStatus.textContent = "Tu opinión fue publicada.";
 	});
 });
