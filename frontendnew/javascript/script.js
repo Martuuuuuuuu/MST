@@ -4,7 +4,18 @@ document.addEventListener("DOMContentLoaded", () => {
 	const menuToggle = document.querySelector(".menu-toggle");
 	const navigationLinks = document.querySelectorAll(".main-nav a");
 
-	if (!header || !menuToggle) {
+	if (!header) {
+		return;
+	}
+
+	const updateScrolledState = () => {
+		header.classList.toggle("is-scrolled", window.scrollY > 16);
+	};
+
+	updateScrolledState();
+	window.addEventListener("scroll", updateScrolledState, { passive: true });
+
+	if (!menuToggle) {
 		return;
 	}
 
@@ -59,6 +70,8 @@ const getRegisteredName = () => {
 	}
 };
 
+const visibleOpinionsLimit = 9;
+
 const renderOpinions = (opinions, opinionsList) => {
 	opinionsList.replaceChildren();
 
@@ -70,9 +83,10 @@ const renderOpinions = (opinions, opinionsList) => {
 		return;
 	}
 
-	opinions.forEach((opinion) => {
+	opinions.forEach((opinion, index) => {
 		const card = document.createElement("article");
 		card.className = "opinion-card";
+		card.hidden = index >= visibleOpinionsLimit;
 
 		const quote = document.createElement("p");
 		quote.className = "opinion-message";
@@ -85,6 +99,29 @@ const renderOpinions = (opinions, opinionsList) => {
 		card.append(quote, author);
 		opinionsList.append(card);
 	});
+
+	if (opinions.length > visibleOpinionsLimit) {
+		const toggleButton = document.createElement("button");
+		toggleButton.className = "opinions-toggle";
+		toggleButton.type = "button";
+		toggleButton.setAttribute("aria-expanded", "false");
+		toggleButton.setAttribute("aria-label", "Mostrar más comentarios");
+		toggleButton.textContent = "↓";
+
+		toggleButton.addEventListener("click", () => {
+			const isExpanded = toggleButton.getAttribute("aria-expanded") === "true";
+			opinionsList.querySelectorAll(".opinion-card").forEach((card, index) => {
+				if (index >= visibleOpinionsLimit) {
+					card.hidden = isExpanded;
+				}
+			});
+			toggleButton.setAttribute("aria-expanded", String(!isExpanded));
+			toggleButton.setAttribute("aria-label", isExpanded ? "Mostrar más comentarios" : "Ocultar comentarios");
+			toggleButton.textContent = isExpanded ? "↓" : "↑";
+		});
+
+		opinionsList.append(toggleButton);
+	}
 };
 
 document.addEventListener("DOMContentLoaded", () => {

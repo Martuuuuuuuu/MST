@@ -542,8 +542,15 @@ body {
 	text-decoration: none;
 }
 
+.footer-logo small {
+	display: block;
+	font-size: 32px;
+	letter-spacing: 0;
+	color: #fff7e6;
+}
+
 .footer-brand > p {
-	color: #a9e2ce;
+	color: #a9c5e2;
 	font-family: Georgia, serif;
 	font-size: 13px;
 	font-weight: bold;
@@ -559,7 +566,7 @@ body {
 }
 
 .footer-action {
-	border-bottom: 1px solid #9ee2cc;
+	border-bottom: 1px solid #a9c5e2;
 	color: #fffaf2;
 	display: inline-flex;
 	font-size: 11px;
@@ -573,14 +580,14 @@ body {
 }
 
 .footer-action span {
-	color: #9ee2cc;
+	color: #a9c5e2;
 	font-size: 18px;
 	line-height: 10px;
 }
 
 .footer-column h2 {
 	background: none;
-	color: #a9e2ce;
+	color: #a9c5e2;
 	font-family: Arial, sans-serif;
 	font-size: 11px;
 	font-weight: bold;
@@ -592,7 +599,7 @@ body {
 }
 
 .footer-heading-icon {
-	color: #a9e2ce;
+	color: #a9c5e2;
 	display: inline-block;
 	height: 12px;
 	margin-right: 8px;
@@ -602,12 +609,12 @@ body {
 }
 
 .icon-clock {
-	border: 1.5px solid #9ee2cc;
+	border: 1.5px solid #a9c5e2;
 	border-radius: 50%;
 }
 
 .icon-clock::before, .icon-clock::after {
-	background: #9ee2cc;
+	background: #a9c5e2;
 	height: 1px;
 	left: 5px;
 	position: absolute;
@@ -622,12 +629,12 @@ body {
 }
 
 .icon-contact {
-	border: 1.5px solid #9ee2cc;
+	border: 1.5px solid #a9c5e2;
 	border-radius: 1px;
 }
 
 .icon-contact::before {
-	background: #9ee2cc;
+	background: #a9c5e2;
 	border-radius: 50%;
 	height: 3px;
 	left: 2px;
@@ -637,7 +644,7 @@ body {
 }
 
 .icon-contact::after {
-	background: #9ee2cc;
+	background: #a9c5e2;
 	height: 1px;
 	left: 6px;
 	position: absolute;
@@ -646,13 +653,13 @@ body {
 }
 
 .icon-explore {
-	border: 1.5px solid #9ee2cc;
+	border: 1.5px solid #a9c5e2;
 	border-radius: 50%;
 }
 
 .icon-explore::before {
-	border-bottom: 2px solid #9ee2cc;
-	border-right: 2px solid #9ee2cc;
+	border-bottom: 2px solid #a9c5e2;
+	border-right: 2px solid #a9c5e2;
 	content: "";
 	height: 4px;
 	left: 3px;
@@ -855,7 +862,7 @@ body {
 
 .opinions-layout {
 	display: grid;
-	gap: 24px;
+	gap: 14px;
 	grid-template-columns: 1fr;
 	margin: 0 auto;
 	max-width: 1040px;
@@ -868,6 +875,10 @@ body {
 	box-shadow: 0 10px 24px rgba(66, 107, 129, .1);
 }
 
+.opinion-card[hidden] {
+    display: none;
+}
+
 .opinion-form {
 	border-top: 1px solid #cfe3e9;
 	padding: 4px 0 0;
@@ -875,9 +886,9 @@ body {
 
 .opinion-form label {
 	color: #183b56;
-	font-size: 12px;
+	font-size: 10px;
 	font-weight: bold;
-	letter-spacing: .6px;
+	letter-spacing: 0.8px;
 	margin-bottom: 10px;
 	text-transform: uppercase;
 }
@@ -891,7 +902,7 @@ body {
 	margin: 0;
 	min-height: 66px;
 	overflow: hidden;
-	padding: 11px 12px;
+	padding: 20px 12px;
 	resize: none;
 	transition: border-color .2s ease, box-shadow .2s ease;
 	width: 100%;
@@ -916,13 +927,14 @@ body {
 	border-radius: 999px;
 	color: #ffffff;
 	cursor: pointer;
-	font-size: 11px;
+	font-size: 12px;
 	font-weight: bold;
-	letter-spacing: .8px;
-	min-height: 42px;
-	padding: 11px 14px;
+	letter-spacing: 0.8px;
+	min-height: 44px;
+	padding: 2px 14px;
 	text-transform: uppercase;
 	transition: background .2s ease, transform .2s ease;
+	align-self: center;
 }
 
 .opinion-form button:hover, .opinion-form button:focus-visible {
@@ -939,7 +951,7 @@ body {
 
 .opinions-list {
 	display: grid;
-	gap: 16px;
+	gap: 20px;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -955,8 +967,38 @@ body {
 }
 
 .opinion-card {
-	min-height: 100px;
-	padding: 15px 15px;
+	display: flex;
+	flex-direction: column;
+	min-height: 10px;
+	padding: 20px 15px;
+}
+
+.opinions-toggle {
+	align-items: center;
+	background: #16587b;
+	border: 0;
+	border-radius: 50%;
+	color: #ffffff;
+	cursor: pointer;
+	display: flex;
+	font-size: 24px;
+	height: 42px;
+	justify-content: center;
+	justify-self: center;
+	line-height: 1;
+	transition: background .2s ease, transform .2s ease;
+	width: 42px;
+	grid-column: 1 / -1;
+}
+
+.opinions-toggle:hover, .opinions-toggle:focus-visible {
+	background: #24789d;
+	transform: translateY(-2px);
+}
+
+.opinions-toggle:focus-visible {
+	outline: 3px solid rgba(22, 88, 123, .25);
+	outline-offset: 3px;
 }
 
 .opinion-message {
@@ -964,27 +1006,19 @@ body {
 	font-family: Georgia, serif;
 	font-size: 17px;
 	line-height: 1.5;
-	min-height: 66px;
+	margin: 0;
 }
 
 .opinion-author {
 	border-top: 1px solid #e1edf1;
 	color: #6e9bb1;
-	font-size: 11px;
+	font-size: 12px;
 	font-weight: bold;
-	letter-spacing: .8px;
-	margin-top: 12px;
-	padding-top: 9px;
+	letter-spacing: 0.8px;
+	margin: auto 0 0;
+	padding-top: 7px;
 	text-transform: uppercase;
 }
-
-
-
-
-
-
-
-
 
 /*SECCION REGISTRARSE, INICIAR SESION*/
 
@@ -1120,8 +1154,3 @@ body {
 		transform: none;
 	}
 }
-
-
-
-
-
