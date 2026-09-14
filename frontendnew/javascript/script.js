@@ -70,7 +70,7 @@ const getRegisteredName = () => {
 	}
 };
 
-const visibleOpinionsLimit = 9;
+const visibleOpinionsLimit = 6;
 
 const renderOpinions = (opinions, opinionsList) => {
 	opinionsList.replaceChildren();
@@ -175,3 +175,4 @@ document.addEventListener("DOMContentLoaded", () => {
 		opinionStatus.textContent = "Tu opinión fue publicada.";
 	});
 });
+
