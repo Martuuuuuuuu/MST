@@ -208,67 +208,92 @@ Proyecto MST/
 - `nombre` - Nombre del usuario
 - `apellido` - Apellido del usuario
 - `DNI` - Documento de identidad del usuario
-- `gmail` - Correo electrónico del usuario
+- `email` - Correo electrónico del usuario
+- `telefono` - numero de telefono
+- `password_hash` - Contraseña encriptada del usuario
+- `fecha_registro` - fecha de registro
+- `activo` - indica si el usuario esta activo
 
-**Tabla: telefono**
-- `id_telefono` - ID único del teléfono
-- `id_usuario` - Usuario asociado al teléfono
-- `telefono` - Número telefónico del usuario
+**tabla: Administradores**
+- `id_administrador` -
+- `nombre` -
+- `apellido` -
+- `email` -
+- `password_hash` -
+- `fecha_registro` -
+- `activo` -
 
-**Tabla: producto**
-- `id_producto` - ID único del producto
-- `id_usuario` - Usuario que registra el producto
-- `id_ganancia` - Ganancia asociada al producto
-- `nombre` - Nombre del producto
-- `descripcion` - Descripción del producto
-- `precio` - Precio del producto
+**tabla: Productos**
+- `id_producto` -
+- `id_categoria` -
+- `nombre` -
+- `descripcion` -
+- `activo` -
+- `fecha_alta` -
 
-**Tabla: reserva**
-- `id_reserva` - ID único de la reserva
-- `id_usuario` - Usuario que realiza la reserva
-- `id_producto` - Producto reservado
-- `fecha` - Fecha de creación de la reserva
-- `fecha_retiro` - Fecha de retiro del producto
-- `estado` - Estado de la reserva
-- `stock` - Cantidad reservada/disponible
+**tabla: Imagenes_Producto**
+- `id_imagen` -
+- `id_producto` -
+- `ruta_imagen` -
+- `texto_alteenativo` -
+- `principal` -
 
-**Tabla: compras**
-- `id_compras` - ID único de la compra
-- `id_gastos` - Gasto asociado a la compra
-- `id_proveedor` - Proveedor de la compra
-- `fecha_compra` - Fecha en la que se realizó la compra
-- `direccion` - Dirección relacionada a la compra
-- `monto` - Total de la compra
-- `motivo` - Motivo de la compra
+**tabla: Talle**
+- `id_talle` -
+- `nombre` -
 
-**Tabla: proveedores**
-- `id_proveedor` - ID único del proveedor
-- `id_compras` - Compra asociada
-- `nombre` - Nombre del proveedor
-- `apellido` - Apellido del proveedor
-- `nombre_sucursal` - Nombre de la sucursal
-- `direccion` - Dirección del proveedor
-- `monto` - Monto de compra realizado
-- `motivo` - Motivo de la compra
-- `telefono_proveedor` - Teléfono del proveedor
+**tabla: Colores**
+- `id_colores` -
+- `nombre` -
 
-**Tabla: caja**
-- `id_ganancia` - Ganancia registrada en caja
-- `id_gastos` - Gasto relacionado con caja
-- `fecha_entrada` - Fecha de ingreso de dinero
-- `fecha_salida` - Fecha de salida de dinero
+**tabla: Materiales**
+- `id_materiales` -
+- `nombre` -
+- `descripcion` -
 
-**Tabla: ganancias**
-- `id_ganancia` - ID único de la ganancia
-- `id_producto` - Producto relacionado con la ganancia
-- `monto` - Dinero generado
-- `descripcion` - Detalle de la ganancia
-- `motivo` - Motivo del ingreso
+**tabla: Precios**
+- `id_precios` -
+- `id_variante` -
+- `precio` -
+- `fecha_desde` -
 
-**Tabla: gastos**
-- `id_gastos` - ID único del gasto
-- `id_compra` - Compra relacionada al gasto
-- `fecha` - Fecha del gasto
-- `monto` - Monto gastado
-- `descripcion` - Descripción del gasto
-- `motivo` - Motivo del gasto
+**tabla: Stock**
+- `id_variante` -
+- `cantidad` -
+
+**tabla: Variantes_producto**
+- `id_variante` -
+- `id_producto` -
+- `id_material` -
+- `id_color` -
+- `id_talle` -
+- `activo` -
+
+**tabla: Reservas**
+- `id_reserva` -
+- `id_usuario` -
+- `fecha_reserva` -
+- `estado` -
+- `observaciones` -
+
+**tabla: Detallee_reserva**
+- `id_detalle` -
+- `id_reserva` -
+- `id_variante` -
+- `cantidad` -
+- `precio_unitario` -
+
+**tabla: Pagos**
+- `id_pago` -
+- `id_reserva` -
+- `monto` -
+- `fecha_pago` -
+- `metodo_pago` -
+- `estado` -
+
+**tabla: Gastos**
+- `id_gasto` -
+- `concepto` -
+- `descripcion` -
+- `monto` -
+- `fecha_gasto` -
