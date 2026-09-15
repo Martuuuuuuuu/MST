@@ -11,24 +11,27 @@
 </head>
 <body>
     <header class="site-header">
-        <nav>
-            <a class="nav-brand" href="inicio.html">Cooperadora <span>Escolar</span></a>
-            <ul>
-                <li><a href="inicio.html">Inicio</a></li>
-                <li><a href="equipo.html">equipo</a></li>
-                <li><a href="https://eest.tecnica1vl.org/">Pagina principal</a></li>
-                <li><a href="tienda.html">Productos</a></li>
-                <li><a href="reservas.html">Reservas</a></li>
-                <li><a href="https://eest.tecnica1vl.org/" target="_blank" rel="noopener noreferrer">Escuela</a></li>
-            </ul>
+        <a class="brand" href="inicio.html">
+            <img class="brand-logo" src="../img/logos/cooperadora.png" alt="Logo de la cooperadora">
+            <span class="brand-text">Cooperadora <small>Escuela Técnica N°1 Eduardo Ader</small></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="main-nav" id="main-navigation" aria-label="Navegación principal">
+            <a href="inicio.html">Inicio</a>
+            <a href="inicio.html#equipo">Equipo</a>
+            <a class="current" aria-current="page" href="tienda.html">Productos</a>
+            <a href="inicio.html#opiniones">Opiniones</a>
+            <a href="formulario.html">Iniciar sesión</a>
+            <a href="register.html">Registrarse</a>
         </nav>
     </header>
-    
     <main>
         <div class="catalog-hero">
-            <span class="catalog-kicker">Tienda de la cooperadora</span>
-            <h1>Productos que acompañan a la escuela</h1>
-            <p class="descripcion">Indumentaria y materiales para estudiantes, familias y personal de la institución. Elegí un producto para conocer sus detalles y solicitar una reserva.</p>
+            <h2>Productos disponibles</h2>
         </div>
         <section class="los-productos" aria-label="Catálogo de productos">
             <a href="cuadernillos.html">

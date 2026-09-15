@@ -161,46 +161,54 @@ body {
 
 .site-header {
 	left: 0;
-	position: absolute;
+	position: sticky;
+    top: 0;
+    z-index: 50;
 	right: 0;
 	top: 0;
-	z-index: 5;
+	backdrop-filter: blur(6px);
+	border-bottom: 2px solid rgba(148, 163, 184, 0.2);
 }
 
 /*portada de inicio*/
 .landing-hero {
-	background-image: linear-gradient(90deg, rgba(4, 48, 88, 0.722) 0%, rgba(7, 70, 119, .42) 55%, rgba(9, 76, 125, .2) 100%), url("../img/fondo/fondo.png");
-	background-position: center;
+	background-image: linear-gradient(90deg, rgba(4, 48, 88, 0.72) 0%, rgba(7, 70, 119, .4) 55%, rgba(9, 76, 125, .22) 100%), url("../img/fondo/fondo.png");
+	background-position: center 42%;
 	background-repeat: no-repeat;
 	background-size: cover;
-	min-height: 70svh;
+	min-height: 90vh;
 	width: 100%;
 	overflow: hidden;
 	position: relative;
 }
 
 .landing-hero::after {
-	background: linear-gradient(180deg, rgba(2, 37, 69, .12), rgba(2, 37, 69, .28));
+	background: linear-gradient(180deg, rgba(2, 37, 69, .08), rgba(2, 37, 69, .18));
 	bottom: 0;
 	content: "";
 	left: 0;
 	position: absolute;
 	right: 0;
 	top: 0;
+	z-index: 1;
 }
 
 .landing-shell {
+	align-items: center;
+	display: flex;
 	margin: 0 auto;
 	max-width: 1300px;
-	min-height: 100svh;
-	padding: 170px max(28px, 10vw) 160px;
+	min-height: 82vh;
+	padding: 115px max(28px, 9vw) 80px;
 	position: relative;
 	z-index: 2;
 }
 
 .landing-copy {
-	max-width: 600px;
-
+	max-width: 620px;
+	margin-top: -12px;
+	position: relative;
+	z-index: 2;
 }
 
 .landing-kicker {
@@ -215,19 +223,18 @@ body {
 .landing-hero h1 {
 	color: #fffaf2;
 	font-family: 'Segoe UI', Tahoma, sans-serif;
-	font-size: clamp(55px, 7vw, 94px);
-	font-weight: 850;
-	line-height: 0.99;
+	font-size: clamp(55px, 7vw, 96px);
+	font-weight: 900;
+	line-height: 0.96;
 	letter-spacing: -4px;
 	text-transform: uppercase;
-	align-items: center;
+	text-shadow: 0 3px 18px rgba(7, 48, 84, 0.3);
 }
 
 .landing-hero h1 em {
 	color: #83d0f4;
 	font-style: italic;
-	align-items: center;
-	
+	text-shadow: 0 3px 18px rgba(7, 48, 84, 0.25);
 }
 
 .landing-description {
@@ -236,6 +243,7 @@ body {
 	line-height: 1.65;
 	margin-top: 30px;
 	max-width: 430px;
+	text-shadow: 0 2px 10px rgba(6, 38, 64, 0.25);
 }
 
 .landing-button {

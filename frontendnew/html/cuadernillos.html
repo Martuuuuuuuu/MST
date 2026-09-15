@@ -1,82 +1,182 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cuadernillos</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/producto.css">
-    <script src="../javascript/carrusel_producto.js" defer></script>
+    <title>cuaderno</title>
 </head>
 <body>
-    <header>
+    <title>Cuaderno - Cooperativa EEST N°1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/producto.css">
+    <script src="../javascript/carrusel_producto.js" defer></script>
+    <style>
+    .carousel {
+        position: relative;
+        width: min(380px, 100%);
+        max-width: 380px;
+        height: 380px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 12px;
+        background: #ffffff;
+        border: 1px solid #BDB3A3;
+        box-shadow: 0 0 0 1px rgba(25, 29, 100, 0.08);
+    }
 
-    </header>
-    <main>
-        <a class="volver" href="tienda.html">← Volver al catálogo</a>
-        <section class="ficha-producto">
-            <div class="imagen">
-                <div class="carousel" aria-label="Galería del cuaderno de comunicados">
-                    <div class="carousel-track">
-                        <img src="../img/productos/cuadernoComunicados1.jpeg" alt="Cuaderno de comunicados vista frontal">
-                        <img src="../img/productos/cuadernoComunicados2.jpeg" alt="Cuaderno de comunicados vista posterior">
-                    </div>
-                    <button class="carousel-arrow prev" type="button" aria-label="Imagen anterior">←</button>
-                    <button class="carousel-arrow next" type="button" aria-label="Imagen siguiente">→</button>
-                    <div class="carousel-dots" aria-label="Seleccionar imagen"></div>
+    .carousel-track {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.4s ease;
+    }
+
+    .carousel-track img {
+        width: 100%;
+        min-width: 100%;
+        height: 100%;
+        flex: 0 0 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+        box-sizing: border-box;
+        background: #ffffff;
+    }
+
+    /* Flechas */
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.45);
+        color: white;
+        border: none;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 20px;
+        z-index: 10;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .carousel-arrow:hover {
+        background: rgba(0, 0, 0, 0.75);
+        transform: translateY(-50%) scale(1.08);
+    }
+
+    .carousel-arrow.prev {
+        left: 15px;
+    }
+
+    .carousel-arrow.next {
+        right: 15px;
+    }
+
+    /* Puntitos */
+    .carousel-dots {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        z-index: 10;
+    }
+
+    .carousel-dots .dot {
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        border-radius: 50%;
+        border: none;
+
+        background: rgba(255, 255, 255, 0.55);
+        cursor: pointer;
+
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .carousel-dots .dot.active {
+        background: white;
+        transform: scale(1.2);
+    }
+</style>
+</head>
+<body>
+<header class="site-header">
+    <a class="brand" href="inicio.html">
+        <img class="brand-logo" src="../img/logos/cooperadora.png" alt="Logo de la cooperadora">
+        <span class="brand-text">Cooperadora <small>Escuela Técnica N°1 Eduardo Ader</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav class="main-nav" id="main-navigation" aria-label="Navegación principal">
+        <a href="inicio.html">Inicio</a>
+        <a href="inicio.html#equipo">Equipo</a>
+        <a class="current" aria-current="page" href="tienda.html">Productos</a>
+        <a href="inicio.html#opiniones">Opiniones</a>
+        <a href="formulario.html">Iniciar sesión</a>
+        <a href="register.html">Registrarse</a>
+    </nav>
+</header>
+
+<a class="volver" href="tienda.html">&larr; Volver al catálogo</a>
+
+<main>
+    <section class="ficha-producto">
+        <div class="imagen">
+            <div class="carousel">
+                <div class="carousel-track" id="track">
+                    <img src="../img/productos/cuadernoComunicados1.jpeg" alt="cuaderno comunicados lado:frente">
+                    <img src="../img/productos/cuadernoComunicados2.jpeg" alt="cuaderno comunicados lado: trasera">
                 </div>
-            </div>
-            <div class="info">
-                <span class="categoria">Material escolar</span>
-                <h1>Cuaderno de comunicados</h1>
-                <p class="precio">Consultar precio</p>
-                <p class="descripcion-producto">Cuaderno institucional para mantener una comunicación clara y ordenada entre la escuela y las familias durante el ciclo lectivo.</p>
-                <ul class="detalles">
-                    <li><span>Edición</span><span>Ciclo lectivo 2027</span></li>
-                    <li><span>Uso</span><span>Comunicaciones escolares</span></li>
-                    <li><span>Disponibilidad</span><span>A confirmar</span></li>
-                </ul>
-                <a class="boton-reserva" href="reservas.html">Reservar producto <span aria-hidden="true">→</span></a>
-            </div>
-        </section>
-    </main>
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a class="footer-logo" href="#inicio">Cooperadora <small>Escolar</small></a>
-                <span>Trabajamos para acompañar y fortalecer a nuestra comunidad educativa.</span>
-                <a class="footer-action" href="tienda.html">Conocé nuestros productos <span aria-hidden="true">→</span></a>
-            </div>
-            <div class="footer-column">
-                <h2><span class="footer-heading-icon icon-clock" aria-hidden="true"></span> Atención</h2>
-                <p>Lunes a viernes<br><strong>12:00 a 17:00 hs</strong></p>
-            </div>
-            <div class="footer-column">
-                <h2><span class="fa fa-user-circle-o" aria-hidden="true"></span> Contacto</h2>
-                <div class="footer-socials">
-                    <a href="https://www.instagram.com/cooperadoraetuno/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="../img/logos/Instagram.png" alt=""><span>@cooperadoraetuno</span></a>
-                    <a href="https://www.facebook.com/cooperadoraetuno" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="../img/logos/facebook.png" alt=""><span>@Asoc.Cooperadora Tecnica 1. VL</span></a>
-                    <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJNvwPHwtNwfVxHcxbZHlqFLBWMBVCcSrnmMbrhGnzsMdmbMWwWgLNNGBmxVJHKDWVHbWGq" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="../img/logos/Gmail.png" alt=""><span>cooperadoraet1@gmail.com</span></a>
-                    <a href="https://t.me/s/eest1?before=265" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="../img/logos/telegram.png" alt=""><span>EESTN°1</span></a>
-                </div>
-            </div>
-            <div class="footer-column footer-links">
-                <h2><span class="footer-heading-icon icon-explore" aria-hidden="true"></span> Explorar</h2>
-                <a href="inicio.html">Inicio</a>
-                <a href="#equipo">Equipo</a>
-                <a href="https://eest.tecnica1vl.org/" target="_blank" rel="noopener noreferrer">Pagina principal</a>
-                <a href="tienda.html">Productos</a>
-                <a href="#opiniones">Opiniones</a>
-                <a href="formulario.html">Iniciar sesión</a>
-                <a href="register.html">Registrarse</a>
-            </div>
+            <button class="carousel-arrow prev" id="prevBtn">&#10094;</button>
+            <button class="carousel-arrow next" id="nextBtn">&#10095;</button>
+        <div class="carousel-dots" id="dots"></div>
+    </div>
+    </div>
+        <div class="info">
+            <span class="categoria">Útiles escolares</span>
+            <h1>Cuaderno ciclo lectivo 2027</h1>
+            <span class="precio">$xxxx</span>
+            <p class="descripcion-producto">
+                Cuaderno de comunicaciones ciclo 2027.
+            </p>
+            <ul class="detalles">
+                <li><span>Formato</span><span>Hojas A4 anilladas</span></li>
+                <li><span>Incluye</span><span>Todas las materias del curso</span></li>
+                <li><span>Disponibilidad</span><span>Por curso y división</span></li>
+                <li><span>Entrega</span><span>En la institucion</span></li>
+            </ul>
+            <a class="boton-reserva" href="reservas.html">Reservar</a>
         </div>
-        <div class="footer-bottom">
-            <span>© 2026 Cooperadora EEST N°1. Todos los derechos reservados.</span>
-            <span>Proyecto MST · Sitio web institucional</span>
+    </section>
+</main>
+
+<footer class="pie-de-pag">
+    <a href="index.html"><img class="logo" src="../img/logos/LogoEEST1png.webp" alt="logo escuela"></a>
+    <div class="informacion">
+        <p>Digitalizando la cooperadora</p>
+        <div class="contenedor-iconos">
+            <a href="https://www.instagram.com/tecnica1_vicente_lopez/"><img class="icon-ig" src="../img/logos/Instagram_logo_2016.svg.png" alt="Instagram"></a>
+            <a href="https://www.facebook.com/tecnicauno.vicentelopez/"><img class="icon-face" src="../img/logos/FacebookLOGO.png" alt="Facebook"></a>
+            <a href="https://t.me/s/eest1?before=265"><img class="icon-teleg" src="../img/logos/TelegramLogo.svg" alt="Telegram"></a>
         </div>
-    </footer>
+    </div>
+</footer>
 </body>
 </html>

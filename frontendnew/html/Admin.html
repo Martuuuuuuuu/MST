@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Cooperadora EEST1</title>
+    <link rel="stylesheet" href="../styles/Admin.css">
+    <script src="../javascript/Admin.js" defer></script>
+</head>
+<body>
+    <!-- Menú lateral -->
+    <aside class="menu-lateral">
+        <div class="nombre-cooperadora">
+            <h1>Cooperadora</h1>
+            <span>EEST1</span>
+        </div>
+        <!-- Opciones del menú -->
+        <nav class="navegacion">
+            <button class="opcion-menu seleccionada" data-seccion="inicio">
+                <img src="../img/iconos/inicio.jpeg" class="menu-icon" alt="Inicio">
+                Inicio
+            </button>
+            <button class="opcion-menu" data-seccion="productos">
+                <img src="../img/iconos/productos.jpeg" class="menu-icon" alt="Productos">
+                Productos
+            </button>
+            <button class="opcion-menu" data-seccion="analiticas">
+                <img src="../img/iconos/graficos.jpeg" class="menu-icon" alt="Analíticas">
+                Analíticas
+            </button>
+            <button class="opcion-menu" data-seccion="reservas">
+                <img src="../img/iconos/reserva.jpeg" class="menu-icon" alt="Reservas">
+                Reservas
+            </button>
+        </nav>
+        <!-- Administrador -->
+        <div class="administrador">
+            <div class="usuario-logueado">
+                <div class="foto-administrador">
+                </div>
+                <div class="informacion-administrador">
+                    <strong>Administrador</strong>
+                    <span>Sesión iniciada</span>
+                </div>
+            </div>
+            <img src="../img/iconos/cerrarSesion.jpeg" class="icono-salida" alt="Cerrar sesión">
+        </div>
+    </aside>
+    <!-- Contenido principal -->
+    <main class="contenido-principal">
+        <!-- Encabezado -->
+        <header class="encabezado">
+            <div>
+                <h2>Panel del Administrador</h2>
+            </div>
+        </header>
+        <!-- Inicio -->
+        <section id="inicio" class="seccion visible">
+            <h3>Sección Inicio</h3>
+            <p>Estás viendo el inicio del panel.</p>
+        </section>
+        <section id="productos" class="seccion">
+            <h3>Sección Productos</h3>
+            <p>Estás viendo los productos de la cooperadora.</p>
+        </section>
+        <section id="analiticas" class="seccion">
+            <h3>Sección Analíticas</h3>
+            <p>Estás viendo las analíticas de la cooperadora.</p>
+        </section>
+        <section id="reservas" class="seccion">
+            <h3>Sección Reservas</h3>
+            <p>Estás viendo las reservas de la cooperadora.</p>
+        </section>
+    </main>
+    
+</body>
+</html>
