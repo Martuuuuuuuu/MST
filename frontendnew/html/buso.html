@@ -6,53 +6,77 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/producto.css">
+    <script src="../javascript/carrusel_producto.js" defer></script>
 </head>
 <body>
-<nav>
-    <ul>
-        <li><a href="inicio.html">Inicio</a></li>
-        <li><a href="equipo.html">equipo</a></li>
-        <li><a href="https://eest.tecnica1vl.org/">Pagina principal</a></li>
-        <li><a href="tienda.html">Productos</a></li>
-    </ul>
-</nav>
+    <header>
 
-<a class="volver" href="tienda.html">&larr; Volver al catálogo</a>
-
-<main>
-    <section class="ficha-producto">
-        <div class="imagen">
-            <img src="../img/Prendas.png" alt="Buso EEST1 de algodón">
+    </header>
+    <main>
+        <a class="volver" href="tienda.html">← Volver al catálogo</a>
+        <section class="ficha-producto">
+            <div class="imagen">
+                <div class="carousel" aria-label="Galería del buzo">
+                    <div class="carousel-track">
+                        <img src="../img/productos/Buzo1.jpeg" alt="Buzo EEST N°1 vista frontal">
+                        <img src="../img/productos/Buzo2.jpeg" alt="Buzo EEST N°1 vista lateral">
+                        <img src="../img/productos/Buzo3.jpeg" alt="Buzo EEST N°1 detalle">
+                        <img src="../img/productos/Buzo4.jpeg" alt="Buzo EEST N°1 vista posterior">
+                    </div>
+                    <button class="carousel-arrow prev" type="button" aria-label="Imagen anterior">←</button>
+                    <button class="carousel-arrow next" type="button" aria-label="Imagen siguiente">→</button>
+                    <div class="carousel-dots" aria-label="Seleccionar imagen"></div>
+                </div>
+            </div>
+            <div class="info">
+                <span class="categoria">Indumentaria escolar</span>
+                <h1>Buzo EEST N°1</h1>
+                <p class="precio">Consultar precio</p>
+                <p class="descripcion-producto">Buzo de algodón para los días frescos, con una propuesta cómoda para usar dentro y fuera de la escuela.</p>
+                <ul class="detalles">
+                    <li><span>Material</span><span>Algodón</span></li>
+                    <li><span>Uso</span><span>Escolar y diario</span></li>
+                    <li><span>Disponibilidad</span><span>A confirmar</span></li>
+                </ul>
+                <a class="boton-reserva" href="reservas.html">Reservar producto <span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a class="footer-logo" href="#inicio">Cooperadora <small>Escolar</small></a>
+                <span>Trabajamos para acompañar y fortalecer a nuestra comunidad educativa.</span>
+                <a class="footer-action" href="tienda.html">Conocé nuestros productos <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="footer-column">
+                <h2><span class="footer-heading-icon icon-clock" aria-hidden="true"></span> Atención</h2>
+                <p>Lunes a viernes<br><strong>12:00 a 17:00 hs</strong></p>
+            </div>
+            <div class="footer-column">
+                <h2><span class="fa fa-user-circle-o" aria-hidden="true"></span> Contacto</h2>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/cooperadoraetuno/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="../img/logos/Instagram.png" alt=""><span>@cooperadoraetuno</span></a>
+                    <a href="https://www.facebook.com/cooperadoraetuno" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="../img/logos/facebook.png" alt=""><span>@Asoc.Cooperadora Tecnica 1. VL</span></a>
+                    <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJNvwPHwtNwfVxHcxbZHlqFLBWMBVCcSrnmMbrhGnzsMdmbMWwWgLNNGBmxVJHKDWVHbWGq" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="../img/logos/Gmail.png" alt=""><span>cooperadoraet1@gmail.com</span></a>
+                    <a href="https://t.me/s/eest1?before=265" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="../img/logos/telegram.png" alt=""><span>EESTN°1</span></a>
+                </div>
+            </div>
+            <div class="footer-column footer-links">
+                <h2><span class="footer-heading-icon icon-explore" aria-hidden="true"></span> Explorar</h2>
+                <a href="inicio.html">Inicio</a>
+                <a href="#equipo">Equipo</a>
+                <a href="https://eest.tecnica1vl.org/" target="_blank" rel="noopener noreferrer">Pagina principal</a>
+                <a href="tienda.html">Productos</a>
+                <a href="#opiniones">Opiniones</a>
+                <a href="formulario.html">Iniciar sesión</a>
+                <a href="register.html">Registrarse</a>
+            </div>
         </div>
-        <div class="info">
-            <span class="categoria">Indumentaria</span>
-            <h1>Buso EEST1 algodón</h1>
-            <span class="precio">$xxxx</span>
-            <p class="descripcion-producto">
-                Buso abrigado de algodón con el logo de la EEST N°1, ideal para los días
-                más fríos del ciclo lectivo. Mantiene la estética institucional sin
-                resignar comodidad.
-            </p>
-            <ul class="detalles">
-                <li><span>Tela</span><span>Algodón frisado</span></li>
-                <li><span>Talles</span><span>S · M · L · XL</span></li>
-                <li><span>Color</span><span>Azul EEST1</span></li>
-                <li><span>Entrega</span><span>En la institucion</span></li>
-            </ul>
+        <div class="footer-bottom">
+            <span>© 2026 Cooperadora EEST N°1. Todos los derechos reservados.</span>
+            <span>Proyecto MST · Sitio web institucional</span>
         </div>
-    </section>
-</main>
-
-<footer class="pie-de-pag">
-    <a href="index.html"><img class="logo" src="../img/logos/eest1.webp" alt="logo escuela"></a>
-    <div class="informacion">
-        <p>Digitalizando la cooperadora</p>
-        <div class="contenedor-iconos">
-            <a href="https://www.instagram.com/tecnica1_vicente_lopez/"><img class="icon-ig" src="../img/logos/instagram.jpeg" alt="Instagram"></a>
-            <a href="https://www.facebook.com/tecnicauno.vicentelopez/"><img class="icon-face" src="../img/logos/facebook.jpeg" alt="Facebook"></a>
-            <a href="https://t.me/s/eest1?before=265"><img class="icon-teleg" src="../img/logos/Telegram%20Logo%20PNG.jpeg" alt="Telegram"></a>
-        </div>
-    </div>
-</footer>
+    </footer>
 </body>
 </html>

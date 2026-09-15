@@ -6,13 +6,38 @@
 
 body{
     font-family: 'Nunito', Arial, sans-serif;
-    color: #1B222C;
-    background: #F6F7F9;
+	color: #183b56;
+	background: #f7fcfd;
+	min-height: 100vh;
 }
 
 nav{
     background-color: #191d64;
+	align-items: center;
+	display: flex;
+	gap: 32px;
+	justify-content: space-between;
     padding: 14px 6%;
+}
+
+.nav-brand {
+	color: #fffaf2;
+	display: block;
+	font-family: Georgia, serif;
+	font-size: 20px;
+	font-style: italic;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.nav-brand span {
+	color: #a9e2ce;
+	display: block;
+	font-size: 13px;
+	font-style: normal;
+	letter-spacing: 1.5px;
+	margin-top: 5px;
+	text-transform: uppercase;
 }
 
 nav ul{
@@ -39,26 +64,47 @@ nav a:focus-visible{
 }
 
 h1{
-    font-family: 'Ubuntu', Arial, sans-serif;
-    font-size: 42px;
+	font-family: Georgia, serif;
+	font-size: clamp(36px, 5vw, 54px);
+	font-weight: normal;
     text-align: center;
-    margin: 36px 0 8px;
-    color: #191d64;
+	margin: 14px 0 12px;
+	color: #183b56;
+}
+
+.catalog-hero {
+	margin: 0 auto;
+	max-width: 840px;
+	padding: 72px 24px 42px;
+	text-align: center;
+}
+
+.catalog-kicker {
+	color: #6e9bb1;
+	display: block;
+	font-size: 12px;
+	font-weight: 800;
+	letter-spacing: 2px;
+	text-transform: uppercase;
 }
 
 .descripcion{
     text-align: center;
-    color: #5B6478;
-    font-size: 17px;
-    line-height: 1.6;
-    margin: 0 15% 44px;
+	color: #637583;
+	font-size: 15px;
+	line-height: 1.7;
+	margin: 0 auto 44px;
+	max-width: 760px;
+	padding: 0 20px;
 }
 
 .los-productos{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
-    margin: 0 8% 60px;
+	gap: 15px;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	margin: 0 auto 76px;
+	max-width: 1040px;
+	padding: 0 28px 86px;
 }
 
 .los-productos a{
@@ -67,50 +113,82 @@ h1{
 }
 
 .los-productos > a > div{
-    background: #FFFFFF;
-    border: 1px solid #D7DCE4;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(14, 20, 28, 0.14);
+	background: #ffffff;
+	border: 1px solid #e1e9ed;
+	border-radius: 20px;
+	box-shadow: 0 12px 24px rgba(66, 107, 129, .12);
     overflow: hidden;
+	position: relative;
     text-align: center;
-    transition: transform .18s ease, box-shadow .18s ease;
+	transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.los-productos > a > div::before{
+	background: linear-gradient(90deg, #8bbbd2, #d6e5eb);
+	content: "";
+	height: 3px;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 1;
 }
 
 .los-productos > a > div:hover{
-    transform: translateY(-6px);
-    box-shadow: 0 14px 26px rgba(14, 20, 28, 0.2);
+	border-color: #8db2c4;
+	transform: translateY(-3px);
+	box-shadow: 0 16px 28px rgba(66, 107, 129, .16);
+}
+
+.los-productos > a > div:focus-within {
+	border-color: #6e9bb1;
+	box-shadow: 0 16px 28px rgba(66, 107, 129, .16);
 }
 
 .los-productos img{
     width: 100%;
-    height: 210px;
+	height: 214px;
     object-fit: contain;
-    background: #E7EBF1;
-    padding: 18px;
+	background: linear-gradient(145deg, #f3fafb, #e8f3f6);
+	margin: 3px 0 0;
+	padding: 18px;
+	width: 100%;
 }
 
 .los-productos p{
-    font-family: 'Nunito', Arial, sans-serif;
-    color: #1B222C;
-    font-size: 16px;
-    margin: 14px 16px 0;
+	color: #183b56;
+	font-size: 15px;
+	margin: 14px 16px 0;
 }
 
 .los-productos p:first-of-type{
     display: inline-block;
-    font-family: 'Ubuntu', Arial, sans-serif;
+	font-family: Arial, sans-serif;
     font-weight: 700;
-    font-size: 17px;
-    color: #93887A;
-    background: #EFEBE4;
-    padding: 4px 14px;
+	font-size: 12px;
+	letter-spacing: .8px;
+	color: #6e9bb1;
+	background: transparent;
+	padding: 0;
     border-radius: 999px;
-    margin-top: 16px;
+	margin-top: 18px;
 }
 
 .los-productos p:last-of-type{
-    margin: 10px 16px 20px;
-    color: #5B6478;
+	font-family: Georgia, serif;
+	font-size: 18px;
+	line-height: 1.25;
+	margin: 8px 16px 22px;
+	color: #637583;
+}
+
+.los-productos p:last-of-type span {
+	color: #8498a5;
+	display: block;
+	font-family: 'Nunito', Arial, sans-serif;
+	font-size: 12px;
+	font-weight: 600;
+	margin-top: 6px;
 }
 
 .pie-de-pag{
@@ -157,12 +235,23 @@ h1{
 }
 
 @media (max-width: 720px){
+	nav {
+	align-items: flex-start;
+	flex-direction: column;
+	gap: 16px;
+	}
     .descripcion{ 
         margin: 0 6% 36px; 
     }
     .los-productos{
-        margin: 0 6% 50px; 
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		margin: 0 auto 50px;
+		padding: 0 20px;
     }
+
+	.los-productos img{
+		height: 180px;
+	}
     nav ul{
         gap: 1.2rem;
         justify-content: center;
@@ -172,6 +261,12 @@ h1{
         flex-direction: column;
         text-align: center; 
     }
+}
+
+@media (max-width: 500px){
+	.los-productos{
+		grid-template-columns: 1fr;
+	}
 }
 
 a:focus-visible, button:focus-visible{
