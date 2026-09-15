@@ -1,37 +1,66 @@
 <?php
-// Incluye el archivo que realiza la conexión con MySQL.
+// Procesa el alta de una cuenta nueva (formulario registro.html).
+session_start();
 require_once 'conexion.php';
-// Verifica que el formulario haya sido enviado utilizando POST.
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Guarda el nombre enviado desde el formulario.
-    $nombre = trim($_POST['nombre']);
-    // Guarda el apellido.
-    $apellido = trim($_POST['apellido']);
-    // Guarda el gmail.
-    $gmail = trim($_POST['gmail']);
-    // Guarda el DNI.
-    $dni = trim($_POST['dni']);
-    // Guarda el teléfono.
-    $telefono = trim($_POST['telefono']);
-    // Consulta SQL para insertar un nuevo usuario.
-    $sql = "INSERT INTO usuarios
-            (nombre, apellido, gmail, DNI, telefono)
-            VALUES
-            (:nombre, :apellido, :gmail, :dni, :telefono)";
-    // Prepara la consulta para mayor seguridad.
+    $nombre    = trim($_POST['nombre'] ?? '');
+    $apellido  = trim($_POST['apellido'] ?? '');
+    $email     = trim($_POST['email'] ?? '');
+    $dni       = trim($_POST['dni'] ?? '');
+    $telefono  = trim($_POST['telefono'] ?? '');
+    $password  = $_POST['password'] ?? '';
+    $password2 = $_POST['password2'] ?? '';
+
+    $errores = [];
+
+    if ($nombre === '' || $apellido === '' || $email === '' || $dni === '' || $telefono === '') {
+        $errores[] = 'Completá todos los campos.';
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errores[] = 'El email ingresado no es válido.';
+    }
+    if (strlen($password) < 6) {
+        $errores[] = 'La contraseña debe tener al menos 6 caracteres.';
+    }
+    if ($password !== $password2) {
+        $errores[] = 'Las contraseñas no coinciden.';
+    }
+
+    if (empty($errores)) {
+try {
+    $sql = "INSERT INTO usuarios 
+    (nombre, apellido, dni, telefono, email, contraseña_hash)
+    VALUES (:nombre, :apellido, :dni, :telefono, :email, :pass)";
+
     $stmt = $pdo->prepare($sql);
-    // Reemplaza los parámetros por los datos ingresados
-    // y ejecuta la consulta.
+
     $stmt->execute([
         ':nombre' => $nombre,
         ':apellido' => $apellido,
-        ':gmail' => $gmail,
         ':dni' => $dni,
-        ':telefono' => $telefono
+        ':telefono' => $telefono,
+        ':email' => $email,
+        ':pass' => password_hash($password, PASSWORD_DEFAULT)
     ]);
-    // Redirecciona al inicio cuando el registro fue exitoso.
-    header("Location: ../frontendnew/html/inicio.html");
-    // Finaliza el script.
+
+    session_regenerate_id(true);
+
+    $_SESSION['usuario_id'] = $pdo->lastInsertId();
+    $_SESSION['username'] = $nombre;
+    $_SESSION['nombre'] = $nombre;
+    $_SESSION['apellido'] = $apellido;
+    $_SESSION['email'] = $email;
+
+    header("Location: ../frontendnew/html/inicio.html?bienvenida=1");
+    exit;
+
+} catch (PDOException $e) {
+    die("ERROR DE MYSQL: " . $e->getMessage());
+}
+    }
+
+    $msg = implode(' ', $errores);
+    header("Location: ../frontendnew/html/registro.html?error=" . urlencode($msg));
     exit;
 }
-?>

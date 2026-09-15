@@ -3,23 +3,36 @@ session_start();
 require_once 'conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $mail = trim($_POST['mail']);
-    $pass = trim($_POST['pass']);
-    
-    $sql = "SELECT * FROM usuarios WHERE mail = :mail";
+
+    $email = trim($_POST['email'] ?? '');
+    $pass = $_POST['password'] ?? '';
+
+    $sql = "SELECT * FROM usuarios WHERE email = :email AND activo = 1";
+
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':mail' => $mail]);
+    $stmt->execute([
+        ':email' => $email
+    ]);
+
     $usuario = $stmt->fetch();
-    
-    // Verificamos si el usuario existe y si la contraseña coincide
-    if ($usuario && password_verify($pass, $usuario['pass'])) {
-        $_SESSION['usuario_id'] = $usuario['id'];
-        $_SESSION['username'] = $usuario['username'];
-        
+
+    if ($usuario && password_verify($pass, $usuario['contraseña_hash'])) {
+
+        session_regenerate_id(true);
+
+        $_SESSION['usuario_id'] = $usuario['id_usuario'];
+        $_SESSION['username'] = $usuario['nombre'];
+        $_SESSION['nombre'] = $usuario['nombre'];
+        $_SESSION['apellido'] = $usuario['apellido'];
+        $_SESSION['email'] = $usuario['email'];
+
         header("Location: ../frontendnew/html/inicio.html");
         exit;
-    } else {
-        echo "Email o contraseña incorrectos. <a href='index.php'>Volver</a>";
     }
+
+    header("Location: ../frontendnew/html/formulario.html?error=" . urlencode('Email o contraseña incorrectos.'));
+    exit;
 }
-?>
+
+header("Location: ../frontendnew/html/formulario.html");
+exit;

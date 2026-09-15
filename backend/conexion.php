@@ -22,7 +22,7 @@ try{
     // Hace que los errores de la base de datos se muestren como excepciones.
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Devuelve los resultados como un arreglo asociativo.
-    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
 }catch(PDOException $e){
     // Si ocurre un error de conexión, muestra el mensaje.
     die("Error de conexión: ".$e->getMessage());
