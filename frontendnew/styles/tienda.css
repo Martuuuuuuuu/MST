@@ -178,9 +178,16 @@ h1{
 
 .catalog-hero {
 	margin: 0 auto;
-	max-width: 840px;
-	padding: 72px 24px 42px;
+	max-width: 1100px;
+	padding: 64px 28px 30px;
 	text-align: center;
+}
+
+.catalog-hero h2 {
+	color: #183b56;
+	font-family: Georgia, serif;
+	font-size: clamp(32px, 4vw, 48px);
+	font-weight: normal;
 }
 
 .catalog-kicker {
@@ -204,11 +211,11 @@ h1{
 
 .los-productos{
     display: grid;
-	gap: 15px;
+	gap: 24px;
 	grid-template-columns: repeat(4, minmax(0, 1fr));
-	margin: 0 auto 76px;
-	max-width: 1040px;
-	padding: 0 28px 86px;
+	margin: 0 auto 64px;
+	max-width: 1120px;
+	padding: 0 28px 72px;
 }
 
 .los-productos a{
@@ -218,24 +225,17 @@ h1{
 
 .los-productos > a > div{
 	background: #ffffff;
-	border: 1px solid #e1e9ed;
-	border-radius: 20px;
-	box-shadow: 0 12px 24px rgba(66, 107, 129, .12);
-    overflow: hidden;
+	border: 1px solid #e4e7e8;
+	border-radius: 4px;
+	box-shadow: 0 8px 22px rgba(25, 59, 86, .08);
+	overflow: hidden;
 	position: relative;
-    text-align: center;
+	text-align: left;
 	transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
 .los-productos > a > div::before{
-	background: linear-gradient(90deg, #8bbbd2, #d6e5eb);
-	content: "";
-	height: 3px;
-	left: 0;
-	position: absolute;
-	right: 0;
-	top: 0;
-	z-index: 1;
+	display: none;
 }
 
 .los-productos > a > div:hover{
@@ -249,50 +249,75 @@ h1{
 	box-shadow: 0 16px 28px rgba(66, 107, 129, .16);
 }
 
-.los-productos img{
-    width: 100%;
-	height: 214px;
-    object-fit: contain;
-	background: linear-gradient(145deg, #f3fafb, #e8f3f6);
-	margin: 3px 0 0;
-	padding: 18px;
+.producto-imagen {
+	background: #eef1f2;
+	height: 285px;
+	overflow: hidden;
+	position: relative;
+}
+
+.producto-imagen img {
+	display: block;
+	height: 100%;
+	object-fit: contain;
+	padding: 14px;
 	width: 100%;
+}
+
+.cuadernillo .producto-imagen img {
+	object-fit: cover;
+	object-position: center;
+	padding: 0;
+}
+
+.producto-favorito {
+	color: #111820;
+	font-family: Arial, sans-serif;
+	font-size: 30px;
+	font-weight: 300;
+	line-height: 1;
+	position: absolute;
+	right: 18px;
+	top: 14px;
+}
+
+.producto-detalle {
+	background: #fff;
+	min-height: 138px;
+	padding: 14px 14px 17px;
 }
 
 .los-productos p{
 	color: #183b56;
 	font-size: 15px;
-	margin: 14px 16px 0;
+	margin: 0;
 }
 
-.los-productos p:first-of-type{
-    display: inline-block;
+.producto-precio {
+	color: #080d12 !important;
 	font-family: Arial, sans-serif;
-    font-weight: 700;
-	font-size: 12px;
-	letter-spacing: .8px;
-	color: #6e9bb1;
-	background: transparent;
-	padding: 0;
-    border-radius: 999px;
-	margin-top: 18px;
+	font-size: 17px !important;
+	font-weight: 700;
+	margin-bottom: 14px !important;
 }
 
-.los-productos p:last-of-type{
-	font-family: Georgia, serif;
-	font-size: 18px;
+.producto-nombre {
+	color: #101820 !important;
+	font-size: 17px !important;
 	line-height: 1.25;
-	margin: 8px 16px 22px;
-	color: #637583;
 }
 
-.los-productos p:last-of-type span {
-	color: #8498a5;
+.producto-nombre span {
+	color: #69747c;
 	display: block;
-	font-family: 'Nunito', Arial, sans-serif;
-	font-size: 12px;
-	font-weight: 600;
-	margin-top: 6px;
+	font-size: 13px;
+	margin-top: 5px;
+}
+
+.producto-categoria {
+	color: #7a858d !important;
+	font-size: 15px !important;
+	margin-top: 13px !important;
 }
 
 .pie-de-pag{
@@ -354,7 +379,11 @@ h1{
     }
 
 	.los-productos img{
-		height: 180px;
+		height: 100%;
+	}
+
+	.producto-imagen {
+		height: 240px;
 	}
     nav ul{
         gap: 1.2rem;
@@ -370,6 +399,10 @@ h1{
 @media (max-width: 500px){
 	.los-productos{
 		grid-template-columns: 1fr;
+	}
+
+	.producto-imagen {
+		height: min(82vw, 360px);
 	}
 }
 
