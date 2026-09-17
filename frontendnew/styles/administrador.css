@@ -74,6 +74,8 @@ body {
     height: 20px;
     object-fit: contain;
     flex-shrink: 0;
+    filter: invert(1) grayscale(1) brightness(1.7);
+    mix-blend-mode: screen;
 }
 /* Al pasar el mouse */
 .opcion-menu:hover {
@@ -134,6 +136,8 @@ body {
     display: block;
     flex-shrink: 0;
     object-fit: contain;
+    filter: invert(1) grayscale(1) brightness(1.7);
+    mix-blend-mode: screen;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.2s;
 }
