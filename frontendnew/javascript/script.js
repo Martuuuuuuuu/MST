@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Seccion de opiniones
 const opinionsStorageKey = "mst-opiniones";
-const opinionsResetKey = "mst-opiniones-reset-v5";
+const opinionsResetKey = "mst-opiniones-reset2";
 
 const readOpinions = () => {
 	try {
