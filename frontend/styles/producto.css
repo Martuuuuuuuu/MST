@@ -320,6 +320,53 @@ nav a:focus-visible{
     transform: translateY(-2px);
 }
 
+.seleccion-color p {
+    color: #183b56;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.botones-color {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.color-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.color-btn:hover {
+    transform: scale(1.08);
+}
+
+.color-btn.azul {
+    background: #163b6d;
+    border: 3px solid #163b6d;
+}
+
+.color-btn.blanco {
+    background: #ffffff;
+    border: 3px solid #c7cdd2;
+}
+
+.color-btn.activo {
+    box-shadow: 0 0 0 3px rgba(24, 59, 86, 0.18);
+    transform: scale(1.08);
+}
+
+#colorSeleccionado {
+    display: block;
+    margin-top: 8px;
+    color: #69747c;
+    font-size: 14px;
+}
+
 @media (max-width: 720px){
     .site-header{
         align-items: center;
@@ -368,9 +415,7 @@ nav a:focus-visible{
         display: flex;
     }
 
-    .main-nav a,
-    .main-nav a:nth-last-child(2),
-    .main-nav a:last-child{
+    .main-nav a,.main-nav a:nth-last-child(2),.main-nav a:last-child{
         border: 0;
         border-bottom: 1px solid rgba(245, 238, 221, .12);
         border-radius: 8px;
@@ -414,8 +459,7 @@ nav a:focus-visible{
     }
 }
 
-a:focus-visible,
-button:focus-visible{
+a:focus-visible, button:focus-visible{
     outline: 3px solid #BDB3A3;
     outline-offset: 2px;
 }

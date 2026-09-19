@@ -36,3 +36,36 @@ document.addEventListener("DOMContentLoaded", () => {
 		updateCarousel(0);
 	});
 });
+
+const botonesColorRemera = document.querySelectorAll(".color-btn");
+const imagenesRemera = document.querySelectorAll("#track img");
+const colorSeleccionado = document.getElementById("colorSeleccionado");
+const colorDetalle = document.getElementById("colorDetalle");
+
+botonesColorRemera.forEach((boton) => {
+    boton.addEventListener("click", () => {
+
+        const color = boton.dataset.color;
+
+        imagenesRemera.forEach((imagen) => {
+            imagen.src = imagen.dataset[color];
+        });
+
+        botonesColorRemera.forEach((b) => {
+            b.classList.remove("activo");
+        });
+
+        boton.classList.add("activo");
+
+        if (color === "azul") {
+            colorSeleccionado.textContent = "Azul EEST1";
+            colorDetalle.textContent = "Azul EEST1";
+        }
+
+        if (color === "blanco") {
+            colorSeleccionado.textContent = "Blanco";
+            colorDetalle.textContent = "Blanco";
+        }
+    });
+
+});

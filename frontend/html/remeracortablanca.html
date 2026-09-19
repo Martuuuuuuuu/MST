@@ -138,10 +138,10 @@
         <div class="imagen">
             <div class="carousel">
                 <div class="carousel-track" id="track">
-                    <img src="../img/productos/remeracortablanca1.jpeg" alt="Buso EEST lado:frente">
-                    <img src="../img/productos/remeracortablanca2.jpeg" alt="Buso EEST lado: lateral derecho">
-                    <img src="../img/productos/remeracortablanca3.jpeg" alt="Buso EEST lado: lateral izquierdo">
-                    <img src="../img/productos/remeracortablanca4.jpeg" alt="Buso EEST lado: atras">
+                    <img src="../img/productos/remeracortablanca1.jpeg" data-azul="../img/productos/remeracortazul1.jpeg" data-blanco="../img/productos/remeracortablanca1.jpeg" alt="Remera corta EEST lado:frente">
+                    <img src="../img/productos/remeracortablanca2.jpeg" data-azul="../img/productos/remeracortazul2.jpeg" data-blanco="../img/productos/remeracortablanca2.jpeg" alt="Remera corta EEST lado: lateral derecho">
+                    <img src="../img/productos/remeracortablanca3.jpeg" data-azul="../img/productos/remeracortazul3.jpeg" data-blanco="../img/productos/remeracortablanca3.jpeg" alt="Remera corta EEST lado: lateral izquierdo">
+                    <img src="../img/productos/remeracortablanca4.jpeg" data-azul="../img/productos/remeracortazul4.jpeg" data-blanco="../img/productos/remeracortablanca4.jpeg" alt="Remera corta EEST lado: atras">
                 </div>
             <button class="carousel-arrow prev" id="prevBtn">&#10094;</button>
             <button class="carousel-arrow next" id="nextBtn">&#10095;</button>
@@ -153,9 +153,18 @@
             <h1>Remera corta blanca EEST1</h1>
             <span class="precio">$ 15.000</span>
             <p class="descripcion-producto">
-                Remera corta blanca de algodón con el logo de la EEST N°1, cómoda para
-                el uso diario y confeccionada por la Cooperadora.
+                Remera corta de algodón con el logo institucional bordado, ideal para el
+                uso diario y para combinar con la identidad escolar. Tiene un corte simple,
+                cómodo y una terminación prolija que se adapta al día a día.
             </p>
+            <div class="seleccion-color">
+                <p>Color</p>
+                <div class="botones-color">
+                    <button type="button" class="color-btn azul" data-color="azul" aria-label="Color azul" title="Azul"></button>
+                    <button type="button" class="color-btn blanco activo" data-color="blanco" aria-label="Color blanco" title="Blanco"></button>
+                </div>
+                <span id="colorSeleccionado">Blanco</span>
+            </div>
             <div class="opciones-compra">
                 <label for="talle-blanca">Talle <select id="talle-blanca"><option>S</option><option>M</option><option>L</option><option>XL</option></select></label>
                 <label for="cantidad-blanca">Cantidad <input id="cantidad-blanca" type="number" min="1" value="1"></label>
@@ -163,7 +172,7 @@
             <ul class="detalles">
                 <li><span>Tela</span><span>Algodón 100%</span></li>
                 <li><span>Talles</span><span>S · M · L · XL</span></li>
-                <li><span>Color</span><span>Blanco</span></li>
+                <li><span>Color</span><span id="colorDetalle">Blanco</span></li>
                 <li><span>Entrega</span><span>En la institucion</span></li>
             </ul>
             <a class="boton-reserva" href="reservas.html">Reservar</a>

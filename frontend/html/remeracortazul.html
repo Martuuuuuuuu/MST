@@ -141,15 +141,15 @@
         <div class="imagen">
             <div class="carousel">
                 <div class="carousel-track" id="track">
-                    <img src="../img/productos/remeracortazul1.jpeg" alt="Chomba EEST lado:frente">
-                    <img src="../img/productos/remeracortazul2.jpeg" alt="Chomba EEST lado: lateral derecho">
-                    <img src="../img/productos/remeracortazul3.jpeg" alt="Chomba EEST lado: lateral izquierdo">
-                    <img src="../img/productos/remeracortazul4.jpeg" alt="Chomba EEST lado: atras">
+                    <img src="../img/productos/remeracortazul1.jpeg" data-azul="../img/productos/remeracortazul1.jpeg" data-blanco="../img/productos/remeracortablanca1.jpeg" alt="Chomba EEST lado: frente">
+                    <img src="../img/productos/remeracortazul2.jpeg" data-azul="../img/productos/remeracortazul2.jpeg" data-blanco="../img/productos/remeracortablanca2.jpeg" alt="Chomba EEST lado: lateral derecho">
+                    <img src="../img/productos/remeracortazul3.jpeg" data-azul="../img/productos/remeracortazul3.jpeg" data-blanco="../img/productos/remeracortablanca3.jpeg" alt="Chomba EEST lado: lateral izquierdo">
+                    <img src="../img/productos/remeracortazul4.jpeg" data-azul="../img/productos/remeracortazul4.jpeg" data-blanco="../img/productos/remeracortablanca4.jpeg" alt="Chomba EEST lado: atrás">
                 </div>
-            <button class="carousel-arrow prev" id="prevBtn">&#10094;</button>
-            <button class="carousel-arrow next" id="nextBtn">&#10095;</button>
-            <div class="carousel-dots" id="dots"></div>
-        </div>
+                <button class="carousel-arrow prev" id="prevBtn">&#10094;</button>
+                <button class="carousel-arrow next" id="nextBtn">&#10095;</button>
+                <div class="carousel-dots" id="dots"></div>
+            </div>
     </div>
         <div class="info">
             <span class="categoria">Indumentaria</span>
@@ -160,17 +160,22 @@
                 uso más formal dentro de la escuela. Combina comodidad con una imagen más
                 prolija que la remera clásica.
             </p>
+            <div class="seleccion-color">
+                <p>Color</p>
+                <div class="botones-color">
+                    <button type="button" class="color-btn azul activo" data-color="azul" aria-label="Color azul" title="Azul"></button>
+                    <button type="button" class="color-btn blanco" data-color="blanco" aria-label="Color blanco" title="Blanco"></button>
+                </div>
+                <span id="colorSeleccionado">Azul EEST1</span>
+            </div>
+
             <div class="opciones-compra">
                 <label for="talle-chomba">Talle <select id="talle-chomba"><option>S</option><option>M</option><option>L</option><option>XL</option></select></label>
                 <label for="cantidad-chomba">Cantidad <input id="cantidad-chomba" type="number" min="1" value="1"></label>
             </div>
             <ul class="detalles">
-                <li><span>Tela</span><span>Piqué de algodón</span></li>
-                <li><span>Talles</span><span>S · M · L · XL</span></li>
-                <li><span>Color</span><span>Azul EEST1</span></li>
                 <li><span>Entrega</span><span>En la institucion</span></li>
             </ul>
-            <a class="boton-reserva" href="reservas.html">Reservar</a>
         </div>
     </section>
 </main>
