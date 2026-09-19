@@ -52,7 +52,7 @@ try {
     $_SESSION['apellido'] = $apellido;
     $_SESSION['email'] = $email;
 
-    header("Location: ../frontendnew/html/inicio.html?bienvenida=1");
+    header("Location: ../frontend/html/inicio.html?bienvenida=1");
     exit;
 
 } catch (PDOException $e) {
@@ -61,6 +61,6 @@ try {
     }
 
     $msg = implode(' ', $errores);
-    header("Location: ../frontendnew/html/registro.html?error=" . urlencode($msg));
+    header("Location: ../frontend/html/registro.html?error=" . urlencode($msg));
     exit;
 }

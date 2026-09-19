@@ -32,7 +32,7 @@ if (!$producto) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Pahawh+Hmong&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../frontendnew/styles/tienda.css">
+    <link rel="stylesheet" href="../frontend/styles/tienda.css">
     <style>
         .producto-individual {
             max-width: 900px;
@@ -124,16 +124,41 @@ if (!$producto) {
     </div>
 </main>
 
-<footer class="pie-de-pag">
-    <a href=""><img class="logo" src="../frontendnew/img/LogoEEST1png.webp" alt="logo escuela"></a>
-    <div class="informacion">
-        <p>Digitalizando la cooperadora</p>
-        <div class="contenedor-iconos">
-            <a href="https://www.instagram.com/tecnica1_vicente_lopez/"><img class="icon-ig" src="../frontendnew/img/Instagram_logo_2016.svg.png" alt="instagram"></a>
-            <a href="https://www.facebook.com/tecnicauno.vicentelopez/"><img class="icon-face" src="../frontendnew/img/FacebookLOGO.png" alt="Facebook"></a>
-            <a href="https://t.me/s/eest1?before=265"><img class="icon-teleg" src="../frontendnew/img/TelegramLogo.svg" alt="Telegram"></a>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a class="footer-logo" href="#inicio">Cooperadora <small>Escolar</small></a>
+                <span>Trabajamos para acompañar y fortalecer a nuestra comunidad educativa.</span>
+                <a class="footer-action" href="tienda.html">Conocé nuestros productos <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="footer-column">
+                <h2><span class="footer-heading-icon icon-clock" aria-hidden="true"></span> Atención</h2>
+                <p>Lunes a viernes<br><strong>12:00 a 17:00 hs</strong></p>
+            </div>
+            <div class="footer-column">
+                <h2><span class="fa fa-user-circle-o" aria-hidden="true"></span> Contacto</h2>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/cooperadoraetuno/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="../img/logos/Instagram.png" alt=""><span>@cooperadoraetuno</span></a>
+                    <a href="https://www.facebook.com/cooperadoraetuno" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="../img/logos/facebook.png" alt=""><span>@Asoc.Cooperadora Tecnica 1. VL</span></a>
+                    <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJNvwPHwtNwfVxHcxbZHlqFLBWMBVCcSrnmMbrhGnzsMdmbMWwWgLNNGBmxVJHKDWVHbWGq" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="../img/logos/Gmail.png" alt=""><span>cooperadoraet1@gmail.com</span></a>
+                    <a href="https://t.me/s/eest1?before=265" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="../img/logos/telegram.png" alt=""><span>EESTN°1</span></a>
+                </div>
+            </div>
+            <div class="footer-column footer-links">
+                <h2><span class="footer-heading-icon icon-explore" aria-hidden="true"></span> Explorar</h2>
+                <a href="inicio.html">Inicio</a>
+                <a href="#equipo">Equipo</a>
+                <a href="https://eest.tecnica1vl.org/" target="_blank" rel="noopener noreferrer">Pagina principal</a>
+                <a href="tienda.html">Productos</a>
+                <a href="#opiniones">Opiniones</a>
+                <a href="formulario.html">Iniciar sesión</a>
+                <a href="registro.html">Registrarse</a>
+            </div>
         </div>
-    </div>
-</footer>
+        <div class="footer-bottom">
+            <span>© 2026 Cooperadora EEST N°1. Todos los derechos reservados.</span>
+            <span>Proyecto MST · Sitio web institucional</span>
+        </div>
+    </footer>
 </body>
 </html>

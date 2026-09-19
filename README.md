@@ -215,7 +215,7 @@ Proyecto MST/
 - `activo` - indica si el usuario esta activo
 
 **tabla: Administradores**
-- `id_administrador` -
+- `id_administrador` - ID  
 - `nombre` -
 - `apellido` -
 - `email` -

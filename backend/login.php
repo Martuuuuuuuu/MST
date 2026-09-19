@@ -26,13 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['apellido'] = $usuario['apellido'];
         $_SESSION['email'] = $usuario['email'];
 
-        header("Location: ../frontendnew/html/inicio.html");
+        header("Location: ../frontend/html/inicio.html");
         exit;
     }
 
-    header("Location: ../frontendnew/html/formulario.html?error=" . urlencode('Email o contraseña incorrectos.'));
+    header("Location: ../frontend/html/formulario.html?error=" . urlencode('Email o contraseña incorrectos.'));
     exit;
 }
 
-header("Location: ../frontendnew/html/formulario.html");
+header("Location: ../frontend/html/formulario.html");
 exit;
