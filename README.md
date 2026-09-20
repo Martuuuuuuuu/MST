@@ -21,12 +21,12 @@ Escuela de Educación Técnica N°1 de Vicente López Eduardo Ader
  - Base de datos
  - Diseño web
  - Modelos y Sistemas
+ - ingles
 
 ## Lenguajes que se utilizará:
 
  - HTML: Base de nuestro proyecto (Página Web).
  - CSS: Diseño de la página web.
- - Python: Backend del proyecto.
  - JavaScript: Funcionamiento de la página web (posible).
  - Php myAdmin: Base de datos para el sistema de login de los usuarios.
 
@@ -135,7 +135,6 @@ Usuario intenta comprar
 ## Apartados del Login
 
 **Pestaña: iniciar sesion**
-    - Nombre de usuario de su cuenta
     - Correo Electronico
     - Contraseña
     - Validación con servidor
@@ -143,7 +142,7 @@ Usuario intenta comprar
 **Pestaña: registrarse**
     - Nombre completo
     - Email
-    - Contraseña (mínimo 8 caracteres y caracteres especiales)
+    - Contraseña (mínimo 8 caracteres, caracteres especiales y letras mayusculas)
     - Teléfono 
     - Validación de contraseñas coincidentes
 
@@ -167,38 +166,92 @@ Usuario intenta comprar
 ## Estructura de las carpetas
 
 <pre>
-Proyecto MST/
+MST/
 ├── backend/
 │   ├── carga_producto.php
 │   ├── conexion.php
-│   ├── index.php
-│   ├── listado.php
+│   ├── listado.html
 │   ├── login.php
-│   ├── logout.php 
+│   ├── logout.php
 │   ├── procesar.php
 │   ├── producto.php
-│   ├── setup.php
+│   └── setup.php
+├──docs/
+│   ├──Informe/
+│   │   └──Informe_MST_v1.0.0.pdf
+│   ├── Carpetas_campo/
+│   │   ├── carpeta_general_v1.0.0.pdf
+│   │   ├── carpeta_sofia_v1.0.0.pdf
+│   │   ├── carpeta_thiago_v1.0.0.pdf
+│   │   └── carpeta_martina_v1.0.0.pdf
+│   ├──Manuales/
+│   │   ├── Manual_Usuario_v1.0.0.pdf
+│   │   └── Manual_Programador_v1.0.0.pdf
+│   ├── disenos/
+│   │   ├── afiche
+│   │   ├── triptico
+│   │   ├── tech_card
+│   │   ├── diagrama_flujo
+│   │   └── diagrama_gantt
 ├── frontend/
-    └── vscode/
-        ├── html/
-        │   ├── buso.html
-        │   ├── chomba.html
-        │   ├── cuadernillo.html
-        │   ├── equipo.html
-        │   ├── formulario.html
-        │   ├── inicio.html
-        │   ├── remera.html
-        │   ├── reservas.html
-        │   ├── tienda.html
-        │   └── Equipo.html
-        ├── img/
-        │   ├── logos
-        │   └── productos
-        ├── css/
-        │   └── style.css
-        └── js/
-           ├── script.js
-           └── inicio.js
+      ├── html/
+      │   ├── administrador.html
+      │   ├── buzo.html
+      │   ├── cuadernillo.html
+      │   ├── formulario.html
+      │   ├── inicio.html
+      │   ├── registrarse.html
+      │   ├── registro.html
+      │   ├── remera.html
+      │   ├── remera_corta_blanca.html
+      │   ├── remera_corta_azul.html
+      │   ├── reservas.html
+      │   └── tienda.html
+      ├── img/
+      │   ├── fondo
+      │   │   └── fondo.png  
+      │   ├── iconos
+      │   │   ├── cerrarSesion.jpeg
+      │   │   ├── grafico.jpeg
+      │   │   ├── inicio.jpeg
+      │   │   ├── productos.jpeg
+      │   │   └── reserva.jpeg
+      │   ├── logos
+      │   │   ├── Cooperadora.png
+      │   │   ├── eest1.webp
+      │   │   ├── facebook.png
+      │   │   ├── gmail.png
+      │   │   ├── instagram.png
+      │   │   └── telegram.png
+      │   └── productos
+      │   │   ├── buzo1.jpeg
+      │   │   ├── buzo2.jpeg
+      │   │   ├── buzo3.jpeg
+      │   │   ├── buzo4.jpeg
+      │   │   ├── cuadernoComunicados1.jpeg
+      │   │   ├── cuadernoComunicados2.jpeg
+      │   │   ├── remera1.jpeg
+      │   │   ├── remera2.jpeg
+      │   │   ├── remera3.jpeg
+      │   │   ├── remera4.jpeg
+      │   │   ├── remeracortazul1.jpeg
+      │   │   ├── remeracortazul2.jpeg
+      │   │   ├── remeracortazul3.jpeg
+      │   │   ├── remeracortazul4.jpeg
+      │   │   ├── remeracortblanca1.jpeg
+      │   │   ├── remeracortblanca2.jpeg
+      │   │   ├── remeracortblanca3.jpeg
+      │   │   └── remeracortblanca4.jpeg
+      ├── css/
+      │   ├── administrador.css
+      │   ├── inicio.css
+      │   ├── producto.css
+      │   ├── sesion.css
+      │   └── tienda.css
+      └── js/
+           ├── administrador.js
+           ├── carrusel_producto.js
+           └── script.js
 </pre>
 
 ## Estructura de la base de datos
@@ -215,85 +268,85 @@ Proyecto MST/
 - `activo` - indica si el usuario esta activo
 
 **tabla: Administradores**
-- `id_administrador` - ID  
-- `nombre` -
-- `apellido` -
-- `email` -
-- `password_hash` -
-- `fecha_registro` -
-- `activo` -
+- `id_administrador` - ID único del administrador  
+- `nombre` - Nombre del administrador 
+- `apellido` - Apellido del administrador
+- `email` - Email del administrador 
+- `password_hash` - Contraseña encriptada del usuario
+- `fecha_registro` - Fecha en la que el administrador se registro en el sitio web
+- `activo` - Indica si es que el administrador esta activo
 
 **tabla: Productos**
-- `id_producto` -
-- `id_categoria` -
-- `nombre` -
-- `descripcion` -
-- `activo` -
-- `fecha_alta` -
+- `id_producto` - ID único del producto
+- `id_categoria` - ID de categorias en los productos
+- `nombre` - Nombre del producto
+- `descripcion` - Descripcion del producto
+- `activo` - Si el producto esta disponible 
+- `fecha_alta` - Indica en que fecha este fue registrado en el sistema 
 
 **tabla: Imagenes_Producto**
-- `id_imagen` -
-- `id_producto` -
-- `ruta_imagen` -
-- `texto_alteenativo` -
-- `principal` -
+- `id_imagen` - ID único de la imagen
+- `id_producto` - ID foranea de productos 
+- `ruta_imagen` - URL de la imagen del producto
+- `texto_alteenativo` - Descripcion de que es el producto si no se puede visualizar
+- `principal` - Indica si esa imagen es la principal del producto
 
 **tabla: Talle**
-- `id_talle` -
-- `nombre` -
+- `id_talle` - ID único de la talle 
+- `nombre` - Nombre de la talle 
 
 **tabla: Colores**
-- `id_colores` -
-- `nombre` -
+- `id_colores` - ID único del color de la ropa
+- `nombre` - nombre del color
 
 **tabla: Materiales**
-- `id_materiales` -
-- `nombre` -
-- `descripcion` -
+- `id_materiales` - ID único del material de la ropa
+- `nombre` - nombre del material utilizado
+- `descripcion` - descripcion de la calidad del material
 
 **tabla: Precios**
-- `id_precios` -
-- `id_variante` -
-- `precio` -
-- `fecha_desde` -
+- `id_precios` - ID único de los precios
+- `id_variante` - ID de las variantes 
+- `precio` - precio de las prendas
+- `fecha_desde` - desde que fecha se le implemento ese precio
 
 **tabla: Stock**
-- `id_variante` -
-- `cantidad` -
+- `id_variante` - ID único de las variantes
+- `cantidad` - cantidad disponibles de cada prenda
 
 **tabla: Variantes_producto**
-- `id_variante` -
-- `id_producto` -
-- `id_material` -
-- `id_color` -
-- `id_talle` -
-- `activo` -
+- `id_variante` - ID único de variantes
+- `id_producto` - ID de los productos 
+- `id_material` - ID del material de la prenda
+- `id_color` - ID del color de la prenda
+- `id_talle` - ID de las talles de cada prenda
+- `activo` - indica si es que este aun sigue disponible
 
 **tabla: Reservas**
-- `id_reserva` -
-- `id_usuario` -
-- `fecha_reserva` -
-- `estado` -
-- `observaciones` -
+- `id_reserva` - ID único de reservas
+- `id_usuario` - ID de los usuarios
+- `fecha_reserva` - fecha en la que se realizo la reserva
+- `estado` - indica si es que la reserva esta pendiente, confirmada, retirada o cancelada.
+- `observaciones` - Permite guardar información adicional relacionada con la reserva.
 
 **tabla: Detallee_reserva**
-- `id_detalle` -
-- `id_reserva` -
-- `id_variante` -
-- `cantidad` -
-- `precio_unitario` -
+- `id_detalle` - ID único de detalle de la reserva
+- `id_reserva` - ID de la reserva 
+- `id_variante` - ID de las variantes
+- `cantidad` - cantidad pedida en la reserva
+- `precio_unitario` - precio 
 
 **tabla: Pagos**
-- `id_pago` -
-- `id_reserva` -
-- `monto` -
-- `fecha_pago` -
-- `metodo_pago` -
-- `estado` -
+- `id_pago` - ID único del pago
+- `id_reserva` - ID de la reserva
+- `monto` - monto total que se pago
+- `fecha_pago` - dia que se realizo el pago
+- `metodo_pago` - indica el metodo de pago (efectivo)
+- `estado` - Indica la situación del pago (pendiente, aprobado o rechazado)
 
 **tabla: Gastos**
-- `id_gasto` -
-- `concepto` -
-- `descripcion` -
-- `monto` -
-- `fecha_gasto` -
+- `id_gasto` - ID único de gasto
+- `concepto` - Indica el motivo principal por el cual se realizó el gasto 
+- `descripcion` - información adicional sobre el por que se realizo ese gasto.
+- `monto` - indica la cantidad que se gasto
+- `fecha_gasto` - indica en que fecha se realizo el gasto

@@ -341,6 +341,77 @@ nav a:focus-visible{
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
+.seleccion-color {
+    margin-top: 0;
+}
+
+.seleccion-color p {
+    color: #183b56;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.botones-color {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#colorSeleccionado {
+    display: block;
+    margin-top: 8px;
+    color: #69747c;
+    font-size: 14px;
+}
+
+/* TALLE Y CANTIDAD */
+
+.opciones-compra {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.opciones-compra label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #183b56;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.opciones-compra select, .opciones-compra input {
+    height: 38px;
+    border: 1px solid #D7DCE4;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #1B222C;
+    padding: 0 10px;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 14px;
+}
+
+.opciones-compra select {
+    min-width: 75px;
+    cursor: pointer;
+
+}
+
+.opciones-compra input {
+    width: 85px;
+
+}
+
+.opciones-compra select:focus, .opciones-compra input:focus {
+    outline: none;
+    border-color: #191d64;
+    box-shadow: 0 0 0 2px rgba(25, 29, 100, 0.10);
+}
+
+
+
 .color-btn:hover {
     transform: scale(1.08);
 }
@@ -459,7 +530,7 @@ nav a:focus-visible{
     }
 }
 
-a:focus-visible, button:focus-visible{
+a:focus-visible, button:focus-visible{ 
     outline: 3px solid #BDB3A3;
     outline-offset: 2px;
 }
