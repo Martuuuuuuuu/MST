@@ -410,8 +410,6 @@ nav a:focus-visible{
     box-shadow: 0 0 0 2px rgba(25, 29, 100, 0.10);
 }
 
-
-
 .color-btn:hover {
     transform: scale(1.08);
 }
