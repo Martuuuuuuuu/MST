@@ -89,7 +89,7 @@ Lograr realizar una página web para ayudar a mejorar la coordinación y organiz
    Este apartado llevará a la página principal de la EEST N°1.
 
  - Productos:
-   Este apartado contará con todos los productos que ofrece la Coopeativa como busos, remeras, chombas y cuadernos del ciclo lectivo del año correspondiente, entre otros. Cada uno de estos productos contará con una sección aparte en donde se especificarán los detalles del mismo, como los talles, modelos disponibles y precio.
+   Este apartado contará con todos los productos que ofrece la Coopeativa como buzos, remeras, chombas y cuadernos del ciclo lectivo del año correspondiente, entre otros. Cada uno de estos productos contará con una sección aparte en donde se especificarán los detalles del mismo, como los talles, modelos disponibles y precio.
 
  - Reservas:
    Cumplirá la función de un carrito, el cual guardará los productos seleccionados que se quieran reservar, al confirmar los productos elegidos se llevará al usuario a otro apartado en donde tendrá que completar un formulario que pedirá ingresar su nombre, apellido, DNI, email o correo, número de teléfono, etc. Luego tendrá que elegir que día desea retirar sus productos seleccionados y una vez hecho esto se le proporcionará un código, el cual servirá para retirar y confirmar que la reserva se ha hecho con éxito.

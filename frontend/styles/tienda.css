@@ -266,7 +266,7 @@ h1{
 	background: #edf1f3;
 }
 
-.cuadernillo .producto-imagen img,.remera .producto-imagen img,.chomba .producto-imagen img,.buso .producto-imagen img {
+.cuadernillo .producto-imagen img,.remera .producto-imagen img,.chomba .producto-imagen img,.buzo .producto-imagen img {
 	object-fit: cover;
 	object-position: center;
 	padding: 0;

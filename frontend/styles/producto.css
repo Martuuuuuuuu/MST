@@ -40,8 +40,11 @@ nav a:focus-visible{
 
 .site-header{
     align-items: center;
-    background: rgba(7, 54, 94, .94);
+    background: rgba(7, 54, 94, .78);
     border-bottom: 2px solid rgba(148, 163, 184, .2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(12, 30, 44, 0.12);
     display: flex;
     justify-content: space-between;
     padding: 14px max(28px, 6vw);
