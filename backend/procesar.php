@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errores)) {
 try {
     $sql = "INSERT INTO usuarios 
-    (nombre, apellido, dni, telefono, email, contraseña_hash)
+    (nombre, apellido, dni, telefono, email, password_hash)
     VALUES (:nombre, :apellido, :dni, :telefono, :email, :pass)";
 
     $stmt = $pdo->prepare($sql);
