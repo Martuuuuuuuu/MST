@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['email'] = $usuario['email'];
 
         // Todos vuelven a la página principal
-        header("Location: ../frontend/html/inicio.html");
+        header("Location: ../frontend/html/a.php");
         exit;
     }
 
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // IMPORTANTE:
         // El administrador NO va directamente al panel.
         // También vuelve a la página principal.
-        header("Location: ../frontend/html/inicio.html");
+        header("Location: ../frontend/html/a.php");
         exit;
     }
     /* SI NO COINCIDE CON NINGUNA TABLA*/

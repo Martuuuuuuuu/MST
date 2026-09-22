@@ -97,33 +97,44 @@ body {
 
 } 
 
-.main-nav a:nth-last-child(2), .main-nav a:last-child {
+/* Botones de iniciar sesión y registrarse */
+.main-nav .boton-sesion,
+.main-nav .boton-registro {
 	border: 1px solid #73c4ee;
 	border-radius: 999px;
 	padding: 11px 20px;
 }
 
-.main-nav a:nth-last-child(2) {
+/* Iniciar sesión */
+.main-nav .boton-sesion {
 	background: transparent;
 	color: #ffffff;
 }
 
-.main-nav a:last-child { 
+/* Registrarse */
+.main-nav .boton-registro {
 	background: #65bced;
 	color: #ffffff;
 }
 
-.main-nav a:nth-last-child(2):hover,.main-nav a:nth-last-child(2):focus-visible,.main-nav a:last-child:hover,.main-nav a:last-child:focus-visible { 
+/* Hover de los botones */
+.main-nav .boton-sesion:hover,
+.main-nav .boton-sesion:focus-visible,
+.main-nav .boton-registro:hover,
+.main-nav .boton-registro:focus-visible {
 	border-bottom: 1px solid #ffffff;
 	color: #ffffff;
 	transform: translateY(-1px);
 }
 
-.main-nav a:nth-last-child(2):hover {
+/* Hover de iniciar sesión */
+.main-nav .boton-sesion:hover {
 	background: rgba(101, 188, 237, .15);
 }
 
-.main-nav a:last-child:hover,.main-nav a:last-child:focus-visible {
+/* Hover de registrarse */
+.main-nav .boton-registro:hover,
+.main-nav .boton-registro:focus-visible {
 	background: #8bd6f7;
 }
 

@@ -1,3 +1,8 @@
+<?php
+session_start();
+$esAdministrador = isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'administrador';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,7 +14,7 @@
 </head>
 <body id="inicio">
     <header class="site-header"> 
-        <a class="brand" href="inicio.html"> 
+        <a class="brand" href="inicio.php"> 
             <img class="brand-logo" src="../img/logos/cooperadora.png" alt="Logo de la cooperadora">
             <span class="brand-text">Cooperadora <small>Escuela Técnica N°1 Eduardo Ader</small></span> 
         </a>
@@ -19,12 +24,14 @@
             <span></span>
         </button>
         <nav class="main-nav" id="main-navigation" aria-label="Navegacion principal"> 
-            <a class="current" href="inicio.html">Inicio</a> 
+            <a class="current" href="inicio.php">Inicio</a>
             <a href="#equipo">Equipo</a>
             <a href="#opiniones">Opiniones</a>
-            <a href="tienda.html">Productos</a> 
-            <a href="formulario.html">Iniciar sesión</a>
-            <a href="registro.html">Registrarse</a>
+            <a href="tienda.html">Productos</a>
+            <a class="boton-sesion" href="inicio.php">perfil</a>
+<?php if ($esAdministrador): ?>
+    <a class="enlace-panel" href="administrador.html">Ir al panel</a>
+<?php endif; ?>
         </nav> 
     </header>
     <main>
@@ -145,7 +152,7 @@
             </div>
             <div class="footer-column footer-links">
                 <h2><span class="footer-heading-icon icon-explore" aria-hidden="true"></span> Explorar</h2>
-                <a href="inicio.html">Inicio</a>
+                <a href="inicio.php">Inicio</a>
                 <a href="#equipo">Equipo</a>
                 <a href="https://eest.tecnica1vl.org/" target="_blank" rel="noopener noreferrer">Pagina principal</a>
                 <a href="tienda.html">Productos</a>
@@ -159,6 +166,6 @@
             <span>Proyecto MST · Sitio web institucional</span>
         </div>
     </footer>
-    <script src="../javascript/Script.js"></script>
+    <script src="../javascript/script.js"></script>
 </body>
 </html>
