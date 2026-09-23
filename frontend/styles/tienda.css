@@ -167,6 +167,68 @@ body{
 	border-bottom: 2px solid rgba(148, 163, 184, 0.2);
 }
 
+@media (max-width: 720px) {
+	.site-header {
+		align-items: flex-start;
+		flex-wrap: wrap;
+		padding: 14px 20px;
+	}
+	.brand {
+		gap: 10px;
+	}
+	.brand-text {
+		font-size: clamp(17px, 5vw, 20px);
+	}
+	.brand-text small {
+		font-size: clamp(9px, 2.5vw, 11px);
+	}
+	.brand-logo {
+		height: 42px;
+		width: 42px;
+	}
+	.menu-toggle {
+		display: block;
+		flex: 0 0 auto;
+		margin-left: auto;
+	}
+	.main-nav {
+		background: rgba(22, 88, 123, .98);
+		border: 1px solid rgba(245, 238, 221, .2);
+		border-radius: 14px;
+		display: none;
+		flex-basis: 100%;
+		flex-direction: column;
+		gap: 0;
+		margin-top: 18px;
+		padding: 6px;
+		width: 100%;
+	}
+	.site-header.menu-open .main-nav {
+		display: flex;
+	}
+	.main-nav a,
+	.main-nav a:nth-last-child(2),
+	.main-nav a:last-child {
+		border: 0;
+		border-bottom: 1px solid rgba(245, 238, 221, .12);
+		border-radius: 8px;
+		padding: 13px 12px;
+		width: 100%;
+	}
+	.main-nav a:last-child {
+		border-bottom: 0;
+	}
+}
+
+@media (max-width: 500px) {
+	.site-header {
+		padding: 18px 14px;
+	}
+	.main-nav a {
+		font-size: 12px;
+	}
+}
+
 h1{
 	font-family: Georgia, serif;
 	font-size: clamp(36px, 5vw, 54px);

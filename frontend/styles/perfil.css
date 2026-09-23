@@ -1,0 +1,240 @@
+/* Estilos del botón de perfil y del panel de configuración del usuario. */
+.profile-menu {
+	margin-left: auto;
+	position: relative;
+}
+
+/* El botón muestra las iniciales como avatar hasta que exista una foto guardada. */
+.profile-button {
+	align-items: center;
+	background: transparent;
+	border: 1px solid #73c4ee;
+	border-radius: 999px;
+	color: #ffffff;
+	cursor: pointer;
+	display: flex;
+	gap: 9px;
+	padding: 5px 12px 5px 6px;
+}
+
+.profile-avatar {
+	align-items: center;
+	background: #65bced;
+	border-radius: 50%;
+	display: flex;
+	font-size: 11px;
+	font-weight: 700;
+	height: 30px;
+	justify-content: center;
+	width: 30px;
+}
+
+.profile-name {
+	font-size: 11px;
+	font-weight: 700;
+	max-width: 120px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+/* El panel queda alineado con el avatar y contiene las acciones de la cuenta. */
+.profile-panel {
+	background: #fffaf2;
+	border: 1px solid rgba(7, 54, 94, .18);
+	border-radius: 10px;
+	box-shadow: 0 12px 24px rgba(10, 30, 45, .24);
+	min-width: 175px;
+	padding: 7px;
+	position: absolute;
+	right: 0;
+	top: calc(100% + 10px);
+	z-index: 80;
+}
+
+.profile-option {
+	background: transparent;
+	border: 0;
+	border-radius: 6px;
+	color: #16587b;
+	cursor: pointer;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	text-align: left;
+	width: 100%;
+}
+
+.profile-option:hover, .profile-option:focus-visible {
+	background: #e8f3f7;
+}
+
+.profile-logout {
+	border-top: 1px solid #dce8ec;
+	color: #a1332a;
+	margin-top: 4px;
+}
+
+/* El diálogo evita navegar a otra página para modificar los datos personales. */
+.profile-dialog {
+	background: #fffaf2;
+	border: 0;
+	border-radius: 14px;
+	box-shadow: 0 20px 55px rgba(10, 30, 45, .35);
+	color: #183b56;
+	left: auto;
+	margin: 0;
+	max-width: 560px;
+	offset: auto;
+	padding: 0;
+	position: fixed;
+	right: 24px;
+	top: 27%;
+	transform: none;
+	width: min(560px, calc(100% - 32px));
+}
+
+.profile-dialog::backdrop {
+	background: rgba(7, 35, 55, .62);
+}
+
+.profile-form {
+	margin-left: auto;
+	padding: 28px;
+	width: 100%;
+}
+
+.profile-dialog-header {
+	align-items: flex-start;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 22px;
+}
+
+.profile-kicker {
+	color: #6e9bb1;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	margin-bottom: 4px;
+	text-transform: uppercase;
+}
+
+.profile-dialog h2 {
+	color: #16587b;
+	font-family: Georgia, serif;
+	font-size: 25px;
+}
+
+.profile-close {
+	background: transparent;
+	border: 0;
+	color: #16587b;
+	cursor: pointer;
+	font-size: 28px;
+	line-height: 1;
+}
+
+.profile-fields {
+	display: grid;
+	gap: 15px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.profile-fields label {
+	color: #16587b;
+	display: flex;
+	flex-direction: column;
+	font-size: 12px;
+	font-weight: 700;
+	gap: 6px;
+}
+
+.profile-fields input {
+	border: 1px solid #cfd8e3;
+	border-radius: 7px;
+	font-size: 14px;
+	padding: 10px;
+	width: 100%;
+}
+
+.profile-fields input:focus {
+	border-color: #16587b;
+	outline: none;
+}
+
+.profile-field-wide {
+	grid-column: 1 / -1;
+}
+
+.profile-fields small {
+	font-weight: 400;
+}
+
+.profile-status {
+	color: #16587b;
+	font-size: 13px;
+	min-height: 20px;
+	padding-top: 15px;
+}
+
+.profile-dialog-actions {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+	margin-top: 12px;
+}
+
+.profile-dialog-actions button {
+	border: 0;
+	border-radius: 7px;
+	cursor: pointer;
+	font-size: 13px;
+	font-weight: 700;
+	padding: 11px 16px;
+}
+
+.profile-cancel {
+	background: #e8f0f2;
+	color: #16587b;
+}
+
+.profile-save {
+	background: #16587b;
+	color: #ffffff;
+}
+
+@media (max-width: 720px) {
+	.profile-menu {
+		width: 100%;
+	}
+
+	.profile-button {
+		justify-content: center;
+		width: 100%;
+	}
+
+	.profile-panel {
+		position: static;
+		width: 100%;
+	}
+}
+
+@media (max-width: 520px) {
+	.profile-fields {
+		grid-template-columns: 1fr;
+	}
+
+	.profile-field-wide {
+		grid-column: auto;
+	}
+
+	.profile-form {
+		padding: 22px 18px;
+	}
+
+	.profile-dialog-actions {
+		flex-direction: column-reverse;
+	}
+}

@@ -46,8 +46,8 @@ try {
 
     session_regenerate_id(true);
 
-    $_SESSION['usuario_id'] = $pdo->lastInsertId();
-    $_SESSION['username'] = $nombre;
+    $_SESSION['tipo'] = 'usuario';
+    $_SESSION['id_usuario'] = $pdo->lastInsertId();
     $_SESSION['nombre'] = $nombre;
     $_SESSION['apellido'] = $apellido;
     $_SESSION['email'] = $email;
