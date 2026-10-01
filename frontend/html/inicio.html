@@ -6,6 +6,7 @@
     <title>Cooperadora EEST N°1</title> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="../styles/inicio.css">
+    <link rel="stylesheet" href="../styles/perfil.css">
 </head>
 <body id="inicio">
     <header class="site-header"> 
@@ -19,12 +20,13 @@
             <span></span>
         </button>
         <nav class="main-nav" id="main-navigation" aria-label="Navegacion principal"> 
-            <a class="current" href="inicio.html">Inicio</a> 
+            <a class="current" aria-current="location" href="#inicio">Inicio</a> 
             <a href="#equipo">Equipo</a>
             <a href="#opiniones">Opiniones</a>
             <a href="tienda.html">Productos</a> 
             <a href="formulario.html">Iniciar sesión</a>
             <a href="registro.html">Registrarse</a>
+            
         </nav> 
     </header>
     <main>
@@ -35,10 +37,16 @@
             <div class="hero-ring hero-ring-bottom" aria-hidden="true"></div>
             <div class="landing-shell">
                 <div class="landing-copy">
-                    <h1 id="landing-title">Una escuela<br><em>que crece</em><br>con todos.</h1>
+                    <h1 id="landin g-title">Una escuela<br><em>que crece</em><br>con todos.</h1>
                     <p class="landing-description">Un espacio para estar más cerca, conocer, participar y formar parte de nuestra comunidad.</p>
                     <a class="landing-button" href="#equipo">Conocé nuestra comunidad <span aria-hidden="true">↓</span></a>
                 </div>
+            </div>
+        </section>
+        <section class="nosotros-section" id="nosotros" aria-labelledby="nosotros-title">
+            <div class="nosotros">
+                <p>Quienes Somos</p>
+                <h2></h2>
             </div>
         </section>
         <section class="team-section" id="equipo" aria-labelledby="team-title">
@@ -136,8 +144,6 @@
                 <a href="https://eest.tecnica1vl.org/" target="_blank" rel="noopener noreferrer">Pagina principal</a>
                 <a href="tienda.html">Productos</a>
                 <a href="#opiniones">Opiniones</a>
-                <a href="formulario.html">Iniciar sesión</a>
-                <a href="registro.html">Registrarse</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -145,6 +151,6 @@
             <span>Proyecto MST · Sitio web institucional</span>
         </div>
     </footer>
-    <script src="../javascript/script.js"></script>
+    <script src="../javascript/Script.js"></script>
 </body>
 </html>
