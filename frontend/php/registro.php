@@ -6,33 +6,19 @@
     <title>Crear cuenta - Cooperadora EEST N°1</title>
     <link rel="stylesheet" href="../styles/inicio.css">
     <link rel="stylesheet" href="../styles/sesion.css">
-    <link rel="stylesheet" href="../styles/perfil.css">
 </head>
 <body>
-    <header class="site-header">
-        <a class="brand" href="inicio.html">
-            <img class="brand-logo" src="../img/logos/cooperadora.png" alt="Logo de la cooperadora">
-            <span class="brand-text">Cooperadora <small>Escuela Técnica N°1 Eduardo Ader</small></span>
-        </a>
-        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav class="main-nav" id="main-navigation" aria-label="Navegacion principal">
-            <a href="inicio.html">Inicio</a>
-            <a href="tienda.html">Productos</a>
-            <a href="formulario.html">Iniciar sesión</a>
-            <a class="current" href="registro.html">Registrarse</a>
-        </nav>
-    </header>
-
+<?php require_once __DIR__ . '/componentes/header.php'; ?>
     <main class="sesion-main">
         <div class="sesion-card">
             <h1>Crear cuenta</h1>
             <p class="sesion-subtitulo">Completá tus datos para poder reservar productos de la cooperadora.</p>
 
-            <div id="sesion-error" class="sesion-error"></div>
+            <?php if (isset($_GET['error'])): ?>
+                <div id="sesion-error" class="sesion-error visible"><?php echo htmlspecialchars($_GET['error']); ?></div>
+            <?php else: ?>
+                <div id="sesion-error" class="sesion-error"></div>
+            <?php endif; ?>
 
             <form class="sesion-form" action="../../backend/procesar.php" method="POST">
                 <div class="sesion-fila">
@@ -69,20 +55,11 @@
                 <button type="submit" class="sesion-enviar">Crear cuenta</button>
             </form>
 
-            <p class="sesion-cambio">¿Ya tenés una cuenta? <a href="formulario.html">Iniciá sesión</a></p>
+            <p class="sesion-cambio">¿Ya tenés una cuenta? <a href="login.php">Iniciá sesión</a></p>
         </div>
     </main>
+<?php require_once __DIR__ . '/componentes/footer.php'; ?>
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const error = params.get('error');
-        if (error) {
-            const box = document.getElementById('sesion-error');
-            box.textContent = error;
-            box.classList.add('visible');
-        }
-
-        // Aviso simple del lado del cliente si las contraseñas no coinciden,
-        // además de la validación que hace el backend.
         document.querySelector('.sesion-form').addEventListener('submit', function (e) {
             const p1 = document.getElementById('password').value;
             const p2 = document.getElementById('password2').value;

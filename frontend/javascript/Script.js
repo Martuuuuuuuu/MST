@@ -3,9 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const header = document.querySelector(".site-header");
 	const menuToggle = document.querySelector(".menu-toggle");
 	const navigationLinks = document.querySelectorAll(".main-nav a");
-	const sectionLinks = [...navigationLinks].filter((link) => {
-		return link.hash && document.getElementById(link.hash.slice(1));
-	});
 
 	if (!header) {
 		return;
@@ -15,33 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		header.classList.toggle("is-scrolled", window.scrollY > 16);
 	};
 
-	const updateActiveNavigation = () => {
-		const activeSection = sectionLinks
-			.map((link) => ({
-				link,
-				top: document.getElementById(link.hash.slice(1)).getBoundingClientRect().top
-					+ window.scrollY
-			}))
-			.filter((section) => section.top <= window.scrollY + header.offsetHeight + 24)
-			.pop();
-
-		sectionLinks.forEach((link) => {
-			const isCurrent = activeSection ? link === activeSection.link : link.hash === "#inicio";
-			link.classList.toggle("current", isCurrent);
-			if (isCurrent) {
-				link.setAttribute("aria-current", "location");
-			} else {
-				link.removeAttribute("aria-current");
-			}
-		});
-	};
-
 	updateScrolledState();
-	updateActiveNavigation();
-	window.addEventListener("scroll", () => {
-		updateScrolledState();
-		updateActiveNavigation();
-	}, { passive: true });
+	window.addEventListener("scroll", updateScrolledState, { passive: true });
 
 	if (!menuToggle) {
 		return;
@@ -70,7 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Seccion de opiniones
 const opinionsStorageKey = "mst-opiniones";
-const opinionsResetKey = "mst-opiniones-reset10";
+const opinionsResetKey = "mst-opiniones-reset2";
+
 const readOpinions = () => {
 	try {
 		const savedOpinions = JSON.parse(localStorage.getItem(opinionsStorageKey));
@@ -204,69 +177,18 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // PERFIL DE USUARIO
-// Consulta el estado de la sesión y adapta el menú de navegación al usuario actual.
-document.addEventListener("DOMContentLoaded", async () => {
-	const navigation = document.querySelector(".main-nav");
-
-	if (!navigation) {
-		return;
-	}
-
-	try {
-		const response = await fetch("../../backend/sesion.php", {
-			credentials: "same-origin",
-			headers: { Accept: "application/json" }
+document.addEventListener("DOMContentLoaded", () => {
+	const settingsBtn = document.querySelector('[data-profile-action="settings"]');
+	if (settingsBtn) {
+		settingsBtn.addEventListener('click', () => {
+			openProfileDialog();
+			const profilePanel = document.getElementById("profile-panel");
+			if (profilePanel) profilePanel.hidden = true;
+			const profileButton = document.querySelector(".profile-button");
+			if (profileButton) profileButton.setAttribute("aria-expanded", "false");
 		});
-		const session = await response.json();
-
-		if (session.autenticado) {
-			renderAuthenticatedMenu(navigation, session);
-		}
-	} catch (error) {
-		// Si la página se abre sin servidor PHP, conservamos el menú público original.
-		console.warn("No se pudo consultar la sesión del usuario.", error);
 	}
 });
-
-// Crea las iniciales que se muestran dentro del avatar del botón de perfil.
-const getProfileInitials = (user) => {
-	const firstName = (user.nombre || "").trim().charAt(0);
-	const lastName = (user.apellido || "").trim().charAt(0);
-	return `${firstName}${lastName}`.toUpperCase() || "U";
-};
-
-// Sustituye los enlaces de iniciar sesión y registrarse por el botón de perfil.
-const renderAuthenticatedMenu = (navigation, session) => {
-	navigation.querySelectorAll("a").forEach((link) => {
-		const href = link.getAttribute("href") || "";
-		const text = link.textContent.toLowerCase();
-		const isAuthenticationLink = href.includes("formulario.html")
-			|| href.includes("registro.html")
-			|| href.includes("register.html")
-			|| text.includes("iniciar sesión")
-			|| text.includes("registrarse");
-
-		if (isAuthenticationLink) {
-			link.remove();
-		}
-	});
-
-	if (!navigation.querySelector(".profile-menu")) {
-		const profileMenu = document.createElement("div");
-		profileMenu.className = "profile-menu";
-		profileMenu.innerHTML = `
-			<button class="profile-button" type="button" aria-expanded="false" aria-controls="profile-panel">
-				<span class="profile-avatar" aria-hidden="true">${getProfileInitials(session.usuario || session)}</span>
-				<span class="profile-name">${escapeHtml((session.usuario || session).nombre || "Mi perfil")}</span>
-			</button>
-			<div class="profile-panel" id="profile-panel" hidden>
-				<button class="profile-option" type="button" data-profile-action="settings">Configuración</button>
-				<button class="profile-option profile-logout" type="button" data-profile-action="logout">Cerrar sesión</button>
-			</div>`;
-		navigation.append(profileMenu);
-		bindProfileMenu(profileMenu, session);
-	}
-};
 
 // Escapa texto antes de insertarlo en el HTML creado dinámicamente.
 const escapeHtml = (value) => String(value)
@@ -276,32 +198,9 @@ const escapeHtml = (value) => String(value)
 	.replaceAll('"', "&quot;")
 	.replaceAll("'", "&#039;");
 
-// Conecta el botón del avatar con el panel de opciones del perfil.
-const bindProfileMenu = (profileMenu, session) => {
-	const profileButton = profileMenu.querySelector(".profile-button");
-	const profilePanel = profileMenu.querySelector(".profile-panel");
-
-	profileButton.addEventListener("click", () => {
-		const isOpen = profileButton.getAttribute("aria-expanded") === "true";
-		profileButton.setAttribute("aria-expanded", String(!isOpen));
-		profilePanel.hidden = isOpen;
-	});
-
-	profileMenu.querySelector('[data-profile-action="settings"]').addEventListener("click", () => {
-		openProfileDialog(session);
-		profilePanel.hidden = true;
-		profileButton.setAttribute("aria-expanded", "false");
-	});
-
-	profileMenu.querySelector('[data-profile-action="logout"]').addEventListener("click", () => {
-		// El backend destruye la sesión y devuelve a la página de inicio.
-		window.location.href = "../../backend/logout.php";
-	});
-};
-
 // Muestra un formulario reutilizable para modificar la información del usuario.
-const openProfileDialog = async (session) => {
-	let user = session.usuario || session;
+const openProfileDialog = async () => {
+	let user = {};
 
 	try {
 		const response = await fetch("../../backend/perfil.php", {
