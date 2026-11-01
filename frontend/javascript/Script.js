@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	const header = document.querySelector(".site-header");
 	const menuToggle = document.querySelector(".menu-toggle");
 	const navigationLinks = document.querySelectorAll(".main-nav a");
+	const sectionLinks = [...navigationLinks].filter((link) => {
+		return link.hash && document.getElementById(link.hash.slice(1));
+	});
 
 	if (!header) {
 		return;
@@ -12,8 +15,33 @@ document.addEventListener("DOMContentLoaded", () => {
 		header.classList.toggle("is-scrolled", window.scrollY > 16);
 	};
 
+	const updateActiveNavigation = () => {
+		const activeSection = sectionLinks
+			.map((link) => ({
+				link,
+				top: document.getElementById(link.hash.slice(1)).getBoundingClientRect().top
+					+ window.scrollY
+			}))
+			.filter((section) => section.top <= window.scrollY + header.offsetHeight + 24)
+			.pop();
+
+		sectionLinks.forEach((link) => {
+			const isCurrent = activeSection ? link === activeSection.link : link.hash === "#inicio";
+			link.classList.toggle("current", isCurrent);
+			if (isCurrent) {
+				link.setAttribute("aria-current", "location");
+			} else {
+				link.removeAttribute("aria-current");
+			}
+		});
+	};
+
 	updateScrolledState();
-	window.addEventListener("scroll", updateScrolledState, { passive: true });
+	updateActiveNavigation();
+	window.addEventListener("scroll", () => {
+		updateScrolledState();
+		updateActiveNavigation();
+	}, { passive: true });
 
 	if (!menuToggle) {
 		return;
@@ -42,8 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Seccion de opiniones
 const opinionsStorageKey = "mst-opiniones";
-const opinionsResetKey = "mst-opiniones-reset2";
-
+const opinionsResetKey = "mst-opiniones-reset10";
 const readOpinions = () => {
 	try {
 		const savedOpinions = JSON.parse(localStorage.getItem(opinionsStorageKey));

@@ -30,8 +30,8 @@ if ($_SESSION['tipo'] === 'administrador') {
 require_once 'conexion.php';
 $stmt = $pdo->prepare(
     'SELECT id_usuario, nombre, apellido, dni, telefono, email
-    FROM usuarios
-    WHERE id_usuario = :id AND activo = 1'
+     FROM usuarios
+     WHERE id_usuario = :id AND activo = 1'
 );
 $stmt->execute([':id' => $_SESSION['id_usuario'] ?? 0]);
 $usuario = $stmt->fetch();

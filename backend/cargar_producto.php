@@ -12,7 +12,7 @@ require_once "conexion.php";
 $mensaje = "";
 
 /* =========================
-   CARGAR DATOS PARA LOS SELECT
+    CARGAR DATOS PARA LOS SELECT
    ========================= */
 
 $categorias = $pdo->query("
