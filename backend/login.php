@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     if ($email === '' || $password === '') {
-        header("Location: ../frontend/html/formulario.html?error=Completá todos los campos.");
+        header("Location: ../frontend/php/login.php?error=Completá todos los campos.");
         exit;
     }
 
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['email'] = $usuario['email'];
 
         // Todos vuelven a la página principal
-        header("Location: ../frontend/html/inicio.html");
+        header("Location: ../frontend/php/inicio.php");
         exit;
     }
 
@@ -47,13 +47,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // IMPORTANTE:
         // El administrador NO va directamente al panel.
         // También vuelve a la página principal.
-        header("Location: ../frontend/html/inicio.html");
+        header("Location: ../frontend/php/inicio.php");
         exit;
     }
     /* SI NO COINCIDE CON NINGUNA TABLA*/
-    header("Location: ../frontend/html/formulario.html?error=Email o contraseña incorrectos.");
+    header("Location: ../frontend/php/login.php?error=Email o contraseña incorrectos.");
     exit;
 }
-header("Location: ../frontend/html/formulario.html");
+header("Location: ../frontend/php/login.php");
 exit;
 ?>

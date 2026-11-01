@@ -1,3 +1,14 @@
+<?php
+session_start();
+$is_authenticated = isset($_SESSION['tipo']);
+$tipo_rol = $_SESSION['tipo'] ?? null;
+$nombre_usuario = $_SESSION['nombre'] ?? '';
+$apellido_usuario = $_SESSION['apellido'] ?? '';
+
+$inicial1 = !empty($nombre_usuario) ? strtoupper(substr(trim($nombre_usuario), 0, 1)) : '';
+$inicial2 = !empty($apellido_usuario) ? strtoupper(substr(trim($apellido_usuario), 0, 1)) : '';
+$iniciales = ($inicial1 || $inicial2) ? $inicial1 . $inicial2 : 'U';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,26 +20,7 @@
     <link rel="stylesheet" href="../styles/perfil.css">
 </head>
 <body id="inicio">
-    <header class="site-header"> 
-        <a class="brand" href="inicio.html"> 
-            <img class="brand-logo" src="../img/logos/cooperadora.png" alt="Logo de la cooperadora">
-            <span class="brand-text">Cooperadora <small>Escuela Técnica N°1 Eduardo Ader</small></span> 
-        </a>
-        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav class="main-nav" id="main-navigation" aria-label="Navegacion principal"> 
-            <a class="current" aria-current="location" href="#inicio">Inicio</a> 
-            <a href="#equipo">Equipo</a>
-            <a href="#opiniones">Opiniones</a>
-            <a href="tienda.html">Productos</a> 
-            <a href="formulario.html">Iniciar sesión</a>
-            <a href="registro.html">Registrarse</a>
-            
-        </nav> 
-    </header>
+<?php require_once __DIR__ . '/componentes/header.php'; ?>
     <main>
         <section class="landing-hero" aria-labelledby="landing-title">
             <div class="hero-orb hero-orb-large" aria-hidden="true"></div>
@@ -37,16 +29,10 @@
             <div class="hero-ring hero-ring-bottom" aria-hidden="true"></div>
             <div class="landing-shell">
                 <div class="landing-copy">
-                    <h1 id="landin g-title">Una escuela<br><em>que crece</em><br>con todos.</h1>
+                    <h1 id="landing-title">Una escuela<br><em>que crece</em><br>con todos.</h1>
                     <p class="landing-description">Un espacio para estar más cerca, conocer, participar y formar parte de nuestra comunidad.</p>
                     <a class="landing-button" href="#equipo">Conocé nuestra comunidad <span aria-hidden="true">↓</span></a>
                 </div>
-            </div>
-        </section>
-        <section class="nosotros-section" id="nosotros" aria-labelledby="nosotros-title">
-            <div class="nosotros">
-                <p>Quienes Somos</p>
-                <h2></h2>
             </div>
         </section>
         <section class="team-section" id="equipo" aria-labelledby="team-title">
@@ -117,40 +103,7 @@
             </div>
         </section>
     </main>
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a class="footer-logo" href="#inicio">Cooperadora <small>Escolar</small></a>
-                <span>Trabajamos para acompañar y fortalecer a nuestra comunidad educativa.</span>
-                <a class="footer-action" href="tienda.html">Conocé nuestros productos <span aria-hidden="true">→</span></a>
-            </div>
-            <div class="footer-column">
-                <h2><span class="footer-heading-icon icon-clock" aria-hidden="true"></span> Atención</h2>
-                <p>Lunes a viernes<br><strong>12:00 a 17:00 hs</strong></p>
-            </div>
-            <div class="footer-column">
-                <h2><span class="fa fa-user-circle-o" aria-hidden="true"></span> Contacto</h2>
-                <div class="footer-socials">
-                    <a href="https://www.instagram.com/cooperadoraetuno/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="../img/logos/instagram.png" alt=""><span>@cooperadoraetuno</span></a>
-                    <a href="https://www.facebook.com/cooperadoraetuno" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="../img/logos/facebook.png" alt=""><span>@Asoc.Cooperadora Tecnica 1. VL</span></a>
-                    <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJNvwPHwtNwfVxHcxbZHlqFLBWMBVCcSrnmMbrhGnzsMdmbMWwWgLNNGBmxVJHKDWVHbWGq" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="../img/logos/gmail.png" alt=""><span>cooperadoraet1@gmail.com</span></a>
-                    <a href="https://t.me/s/eest1?before=265" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="../img/logos/telegram.png" alt=""><span>EESTN°1</span></a>
-                </div>
-            </div>
-            <div class="footer-column footer-links">
-                <h2><span class="footer-heading-icon icon-explore" aria-hidden="true"></span> Explorar</h2>
-                <a href="inicio.html">Inicio</a>
-                <a href="#equipo">Equipo</a>
-                <a href="https://eest.tecnica1vl.org/" target="_blank" rel="noopener noreferrer">Pagina principal</a>
-                <a href="tienda.html">Productos</a>
-                <a href="#opiniones">Opiniones</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span>© 2026 Cooperadora EEST N°1. Todos los derechos reservados.</span>
-            <span>Proyecto MST · Sitio web institucional</span>
-        </div>
-    </footer>
-    <script src="../javascript/Script.js"></script>
+<?php require_once __DIR__ . '/componentes/footer.php'; ?>
+    <script src="../javascript/script.js"></script>
 </body>
 </html>
